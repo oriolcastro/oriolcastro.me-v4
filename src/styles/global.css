@@ -4,6 +4,7 @@
 
 @layer base {
 	:root {
+		/* TODO: Update color scheme */
 		color-scheme: light;
 		/* https://tailwindcss.com/docs/customizing-colors#using-css-variables */
 		--theme-bg: 0deg 0% 98%;
