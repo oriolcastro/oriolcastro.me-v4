@@ -2,6 +2,7 @@
 import TimelineItemContent from "@/components/timeline/TimelineItemContent";
 import TimelineItemTitle from "@/components/timeline/TimelineItemTitle";
 import { getAllTimelineYears } from "@/utils";
+import TextLink from "@/components/TextLink";
 
 const allTimelineItems = await getAllTimelineYears();
 ---
@@ -11,7 +12,7 @@ const allTimelineItems = await getAllTimelineYears();
 		<div>
 			<p class="my-3 text-lg font-bold">{item.data.year}</p>
 			<div class="flex flex-col border-l-2 border-accent">
-				<item.Content components={{ h1: TimelineItemTitle, p: TimelineItemContent }} />
+				<item.Content components={{ h1: TimelineItemTitle, p: TimelineItemContent, a: TextLink }} />
 			</div>
 		</div>
 	))

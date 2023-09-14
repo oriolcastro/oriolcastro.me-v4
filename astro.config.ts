@@ -5,6 +5,7 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import prefetch from "@astrojs/prefetch";
 import remarkUnwrapImages from "remark-unwrap-images";
+import rehypeExternalLinks from "rehype-external-links";
 // @ts-ignore:next-line
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
 
@@ -23,6 +24,16 @@ export default defineConfig({
 			theme: "dracula",
 			wrap: true,
 		},
+		rehypePlugins: [
+			// @ts-expect-error: there some error in the type for the Rehype plygins incompatible with rehypeExternalLinks
+			[
+				rehypeExternalLinks,
+				{
+					target: "_blank",
+					rel: "noopener noreferrer",
+				},
+			],
+		],
 	},
 	integrations: [
 		mdx({}),
