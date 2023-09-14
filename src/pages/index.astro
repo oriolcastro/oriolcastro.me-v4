@@ -3,6 +3,7 @@ import PageLayout from "@/layouts/Base";
 import PostPreview from "@/components/blog/PostPreview";
 import SocialList from "@/components/SocialList";
 import { getAllPosts, sortMDByDate } from "@/utils";
+import Timeline from "@/components/timeline/Timeline";
 
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
@@ -74,7 +75,12 @@ const cactusTech: Array<{ title: string; desc: string; href: string }> = [
 			}
 		</ul>
 	</section>
-	<section class="mt-16">
+	<!-- TODO: Add the status blocks -->
+	<section aria-label="Programmer carrer timeline" class="mt-16">
+		<h2 class="title mb-4 text-xl">Timeline</h2>
+		<Timeline />
+	</section>
+	<!-- <section class="mt-16">
 		<h2 class="title mb-4 text-xl">Technologies</h2>
 		<ul class="space-y-4 sm:space-y-2">
 			{
@@ -87,11 +93,11 @@ const cactusTech: Array<{ title: string; desc: string; href: string }> = [
 							class="cactus-link inline-block"
 						>
 							{title}
-						</a>: 
-						<p class="inline-block sm:mt-2">{desc}</p>
+						</a>
+						:<p class="inline-block sm:mt-2">{desc}</p>
 					</li>
 				))
 			}
 		</ul>
-	</section>
+	</section> -->
 </PageLayout>

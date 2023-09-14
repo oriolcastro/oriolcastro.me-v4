@@ -33,4 +33,9 @@ const post = defineCollection({
 		}),
 });
 
-export const collections = { post };
+const timeline = defineCollection({
+	type: "content",
+	schema: () => z.object({ year: z.number() }),
+});
+
+export const collections = { post, timeline };

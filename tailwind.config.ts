@@ -109,6 +109,9 @@ export default {
 					},
 				},
 			}),
+			gridTemplateColumns: {
+				"timeline-item": "auto 1fr",
+			},
 		},
 	},
 	plugins: [
