@@ -2,12 +2,18 @@
 import PageLayout from "@/layouts/Base";
 import PostPreview from "@/components/blog/PostPreview";
 import SocialList from "@/components/SocialList";
-import { getAllPosts, sortMDByDate } from "@/utils";
-import Timeline from "@/components/timeline/Timeline";
+import { getAllPosts, getAllTimeline, sortMDByDate, sortTimelineDescByYear } from "@/utils";
+import TimelineItem from "@/components/timeline/TimelineItem";
 
 const MAX_POSTS = 10;
+const MAX_TIMELINE_ITEMS = 2;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
+const allTimelineItems = await getAllTimeline();
+const allTimelineItemsByDate = sortTimelineDescByYear(allTimelineItems).slice(
+	0,
+	MAX_TIMELINE_ITEMS,
+);
 
 const cactusTech: Array<{ title: string; desc: string; href: string }> = [
 	{
@@ -79,7 +85,8 @@ const cactusTech: Array<{ title: string; desc: string; href: string }> = [
 	<!-- TODO: Add the status blocks -->
 	<section aria-label="Programmer carrer timeline" class="mt-16">
 		<h2 class="title mb-4 text-xl">Timeline</h2>
-		<Timeline />
+		<a href="/timeline" class="cactus-link mt-4" rel="prefetch">See all I've done</a>
+		{allTimelineItemsByDate.map((item) => <TimelineItem item={item} />)}
 	</section>
 	<!-- <section class="mt-16">
 		<h2 class="title mb-4 text-xl">Technologies</h2>

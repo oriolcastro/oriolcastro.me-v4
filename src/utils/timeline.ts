@@ -1,18 +1,14 @@
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
-export async function getAllTimelineYears() {
-	const items = await getCollection("timeline");
+export async function getAllTimeline() {
+	return await getCollection("timeline");
+}
 
-	return await Promise.all(
-		items
-			.sort((a, b) => (a.data.year > b.data.year ? -1 : 1))
-			.map(async (item) => {
-				const { Content } = await item.render();
+export function sortTimelineDescByYear(items: Array<CollectionEntry<"timeline">>) {
+	return items.sort((a, b) => (a.data.year > b.data.year ? -1 : 1));
+}
 
-				return {
-					...item,
-					Content,
-				};
-			}),
-	);
+export function sortTimelineAscByYear(items: Array<CollectionEntry<"timeline">>) {
+	return items.sort((a, b) => (a.data.year > b.data.year ? 1 : -1));
 }
