@@ -137,13 +137,13 @@ Edit `src/layouts/Base.astro`, and add:
 
 ```astro
 ---
-import { GoogleAnalytics } from "astro-google-analytics";
+import { GoogleAnalytics } from 'astro-google-analytics'
 // ...other imports
 ---
 
 <head>
-	<!-- Replace id with your own Google Analytics ID -->
-	<GoogleAnalytics id="G-XXXXXXXXXX" />
+  <!-- Replace id with your own Google Analytics ID -->
+  <GoogleAnalytics id="G-XXXXXXXXXX" />
 </head>
 ```
 

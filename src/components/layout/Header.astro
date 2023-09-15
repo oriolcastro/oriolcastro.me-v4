@@ -1,15 +1,18 @@
 ---
-import ThemeToggle from "../ThemeToggle.astro";
-import Search from "../Search.astro";
-import { menuLinks } from "@/site-config";
 import { Image } from "astro:assets";
+
 import icon from "@/assets/icon.png";
+import { menuLinks } from "@/site-config";
+
+import Search from "../Search.astro";
+import ThemeToggle from "../ThemeToggle.astro";
 
 const url = new URL(Astro.request.url);
 ---
 
 <script>
 	import { toggleClass } from "@/utils";
+
 	let headerEl: HTMLElement;
 	let menuButtonEl: HTMLButtonElement;
 	let menuOpen = false;

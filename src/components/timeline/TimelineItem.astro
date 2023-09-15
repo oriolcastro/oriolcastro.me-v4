@@ -1,8 +1,9 @@
 ---
+import type { CollectionEntry } from "astro:content";
+
+import TextLink from "@/components/TextLink";
 import TimelineItemContent from "@/components/timeline/TimelineItemContent";
 import TimelineItemTitle from "@/components/timeline/TimelineItemTitle";
-import TextLink from "@/components/TextLink";
-import type { CollectionEntry } from "astro:content";
 
 type Props = {
 	item: CollectionEntry<"timeline">;
