@@ -5,7 +5,7 @@
   "description": "My personal blog",
   "scripts": {
     "build": "astro build",
-    "postbuild": "pagefind --source dist",
+    "postbuild": "pagefind --site dist",
     "check": "tsc -noEmit",
     "dev": "astro dev",
     "format": "prettier -w --cache .",
