@@ -3,6 +3,11 @@ title: 'A post of Markdown elements'
 description: 'This post is for testing and listing a number of different markdown elements'
 publishDate: '22 Feb 2023'
 tags: ['test', 'markdown']
+coverImage:
+  src: './cover.png'
+  alt: 'Astro build wallpaper'
+ogImage: '/social-card.png'
+draft: true
 ---
 
 ## This is a H2 Heading
