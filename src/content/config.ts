@@ -38,4 +38,18 @@ const timeline = defineCollection({
   schema: () => z.object({ year: z.number() }),
 })
 
-export const collections = { post, timeline }
+const status = defineCollection({
+  type: 'data',
+  schema: z.object({
+    company: z
+      .object({
+        name: z.string(),
+        title: z.string(),
+        url: z.string().url(),
+      })
+      .nullable(),
+    interest: z.string(),
+  }),
+})
+
+export const collections = { post, timeline, status: status }
