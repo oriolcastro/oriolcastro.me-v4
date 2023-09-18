@@ -12,16 +12,16 @@ const meta = {
 ---
 
 <PageLayout meta={meta}>
-  <div class="mb-4 flex justify-center">
-    <Image
-      src={aboutImg}
-      alt="About myself"
-      loading="eager"
-      fetchpriority="high"
-      width={1408}
-      height={792}
-    />
-  </div>
+  <Image
+    src={aboutImg}
+    class="aspect-cover mb-4 object-cover"
+    alt="About myself"
+    loading="eager"
+    fetchpriority="high"
+    width={1408}
+    height={792}
+  />
+
   <div class="space-y-6 text-justify">
     <h1 class="title">A little bit about me</h1>
     <p>

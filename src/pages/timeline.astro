@@ -1,21 +1,21 @@
 ---
-import TimelineItem from "@/components/timeline/TimelineItem";
-import PageLayout from "@/layouts/Base";
-import { getAllTimeline, sortTimelineAscByYear } from "@/utils";
+import TimelineItem from '@/components/timeline/TimelineItem'
+import PageLayout from '@/layouts/Base'
+import { getAllTimeline, sortTimelineAscByYear } from '@/utils'
 
-const allTimelineItems = await getAllTimeline();
-const allTimelineItemsByDate = sortTimelineAscByYear(allTimelineItems);
+const allTimelineItems = await getAllTimeline()
+const allTimelineItemsByDate = sortTimelineAscByYear(allTimelineItems)
 
 const meta = {
-	title: "Timeline",
-	description: "Everything I have achieved during my career",
-};
+  title: 'Timeline',
+  description: 'Everything I have achieved during my career',
+}
 ---
 
 <PageLayout meta={meta}>
-	<div class="space-y-6">
-		<h1 class="title">Timeline</h1>
-		<p>Explain a little bit what is this page about</p>
-		{allTimelineItemsByDate.map((item) => <TimelineItem item={item} />)}
-	</div>
+  <div class="space-y-6">
+    <h1 class="title">Timeline</h1>
+    <!-- <p>Explain a little bit what is this page about</p> -->
+    {allTimelineItemsByDate.map(item => <TimelineItem item={item} />)}
+  </div>
 </PageLayout>
