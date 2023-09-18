@@ -1,7 +1,9 @@
 ---
 import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon'
 
 import aboutImg from '@/assets/about-cover.jpeg'
+import cv from '@/assets/OriolCastroArnau_CV.pdf'
 import TextLink from '@/components/TextLink'
 import PageLayout from '@/layouts/Base'
 
@@ -22,7 +24,7 @@ const meta = {
     height={792}
   />
 
-  <div class="space-y-6 text-justify">
+  <div class="mb-4 space-y-6 text-justify">
     <h1 class="title">A little bit about me</h1>
     <p>
       My name is Oriol Casto Arnau, but you can call me Oriol or just Uri for short. I'm a product
@@ -110,5 +112,20 @@ const meta = {
       </li>
       <li>The importance of <b>commitment</b> and to <b>bond</b> with the project.</li>
     </ul>
+  </div>
+  <div>
+    <h4 class="text-l font-semibold text-accent-2">Download my resume</h4>
+    <a
+      href={cv}
+      download
+      class="mt-4 inline-flex items-center justify-center rounded bg-link px-3 py-2 font-bold text-white"
+      ><Icon
+        class="mr-2 h-6 w-6"
+        name="mdi:file-pdf-outline"
+        aria-hidden="true"
+        focusable="false"
+      />
+       Resume</a
+    >
   </div>
 </PageLayout>
