@@ -1,18 +1,42 @@
 ---
+import TextLink from '@/components/TextLink'
 import PageLayout from '@/layouts/Base'
-// import { getPinnedRepos } from '@/utils'
+import { getPinnedRepos } from '@/utils'
 
 const meta = {
   title: 'Projects',
   description: 'Some of my projects',
 }
 
-// const repos = await getPinnedRepos('oriolcastro')
+const repos = await getPinnedRepos('oriolcastro')
 ---
 
 <PageLayout meta={meta}>
-  <div class="space-y-6 text-justify">
+  <div class="mb-6 space-y-6 text-justify">
     <h1 class="title">Projects</h1>
-    <p>If you want to know how do I code, check out my latest projects!</p>
+    <p>
+      The best way to know how do I code, is to check out some of my projects. This are several
+      selected repositories from my <TextLink href="https://github.com/oriolcastro">
+        Github
+      </TextLink> account.
+    </p>
+  </div>
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+    {
+      repos?.map(repo => (
+        <a href={repo.link} target="_blank" rel="noopener noreferrer">
+          <div class="flex h-full flex-col gap-1 rounded border bg-inherit p-2 hover:border-link">
+            <p class="text-base font-bold">{repo.name}</p>
+            <p class="flex-grow">{repo.description}</p>
+            <span
+              style={{ backgroundColor: repo.languageColor }}
+              class="flex w-fit items-center justify-center rounded-lg px-2 py-[0.125rem] text-xs "
+            >
+              {repo.language}
+            </span>
+          </div>
+        </a>
+      ))
+    }
   </div>
 </PageLayout>
