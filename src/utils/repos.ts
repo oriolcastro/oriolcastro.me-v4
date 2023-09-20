@@ -13,12 +13,16 @@ type Result = {
   forks: string | number
 }
 
+const cache = new Map<string, Result[]>()
+
 const aimer = async (url: string) => {
   const html = await fetch(url).then(res => res.text())
   return cheerio.load(html)
 }
 
 export async function getPinnedRepos(username: string) {
+  if (cache.has(username)) return cache.get(username)
+
   const $ = await aimer(`https://github.com/${username}`)
   const pinned = $('.pinned-item-list-item.public').toArray()
 
@@ -50,6 +54,8 @@ export async function getPinnedRepos(username: string) {
       forks: forks || 0,
     }
   }
+  cache.set(username, result)
+
   return result
 }
 
