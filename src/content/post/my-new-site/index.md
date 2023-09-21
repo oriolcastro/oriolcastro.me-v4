@@ -1,5 +1,5 @@
 ---
-title: 'My new site!'
+title: 'My new site is here!'
 description: 'I finally decided to update my site after leaving abandonded for 3 years 😅'
 publishDate: '22 Sep 2023'
 tags: ['blog', 'astro', 'react', 'gatsby']
