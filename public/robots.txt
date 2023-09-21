@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://oriolcastro-me.pages.dev/sitemap-index.xml
+Sitemap: https://oriolcastro.me/sitemap-index.xml

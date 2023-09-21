@@ -13,7 +13,7 @@ import { remarkReadingTime } from './src/utils/remark-reading-time.mjs'
 // https://astro.build/config
 export default defineConfig({
   // ! Please remember to replace the following site property with your own domain
-  site: 'https://oriolcastro-me.pages.dev/',
+  site: 'https://oriolcastro.me',
   markdown: {
     remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
     remarkRehype: {
