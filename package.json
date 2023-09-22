@@ -54,7 +54,7 @@
     "eslint-config-prettier": "9.0.0",
     "eslint-import-resolver-typescript": "3.6.0",
     "eslint-plugin-astro": "0.29.0",
-    "eslint-plugin-import": "2.28.1",
+    "eslint-plugin-import": "npm:eslint-plugin-i@2.28.1",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-simple-import-sort": "10.0.0",
@@ -72,5 +72,17 @@
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
   },
-  "packageManager": "pnpm@8.7.5"
+  "packageManager": "pnpm@8.7.5",
+  "pnpm": {
+    "overrides": {
+      "array-includes": "npm:@nolyfill/array-includes@latest",
+      "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
+      "array.prototype.flatmap": "npm:@nolyfill/array.prototype.flatmap@latest",
+      "has": "npm:@nolyfill/has@latest",
+      "object.assign": "npm:@nolyfill/object.assign@latest",
+      "object.entries": "npm:@nolyfill/object.entries@latest",
+      "object.fromentries": "npm:@nolyfill/object.fromentries@latest",
+      "object.values": "npm:@nolyfill/object.values@latest"
+    }
+  }
 }
