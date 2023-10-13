@@ -7,12 +7,9 @@ import fs from 'fs'
 import rehypeExternalLinks from 'rehype-external-links'
 import remarkUnwrapImages from 'remark-unwrap-images'
 
-// @ts-expect-error: the plugin is written in JS
-import { remarkReadingTime } from './src/utils/remark-reading-time.mjs'
+import { remarkReadingTime } from './src/utils/remark-reading-time'
 
-// https://astro.build/config
 export default defineConfig({
-  // ! Please remember to replace the following site property with your own domain
   site: 'https://oriolcastro.me',
   markdown: {
     remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
