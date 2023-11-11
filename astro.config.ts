@@ -13,7 +13,7 @@ export default defineConfig({
   prefetch: true,
   experimental: {
     contentCollectionCache: true,
-    devOverlay: true,
+    devOverlay: false,
   },
   markdown: {
     remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
@@ -23,11 +23,8 @@ export default defineConfig({
       },
     },
     shikiConfig: {
+      theme: 'one-dark-pro',
       wrap: true,
-      experimentalThemes: {
-        light: 'github-light',
-        dark: 'one-dark-pro',
-      },
     },
     rehypePlugins: [
       [
