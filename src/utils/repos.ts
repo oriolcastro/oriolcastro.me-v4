@@ -24,7 +24,7 @@ export async function getPinnedRepos(username: string) {
   if (cache.has(username)) return cache.get(username)
 
   const $ = await aimer(`https://github.com/${username}`)
-  const pinned = $('.pinned-item-list-item.public').toArray()
+  const pinned = $('.pinned-item-list-item').toArray()
 
   if (!pinned || pinned.length === 0) return []
 
