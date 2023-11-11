@@ -12,7 +12,9 @@
       "@/types": ["src/types.ts"],
       "@/site-config": ["src/site.config.ts"]
     },
-    "lib": ["DOM"]
+    "lib": ["DOM"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "@builder.io/qwik"
   },
   "exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
 }

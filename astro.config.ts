@@ -1,6 +1,7 @@
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
+import qwikdev from '@qwikdev/astro'
 import { defineConfig } from 'astro/config'
 import fs from 'fs'
 import rehypeExternalLinks from 'rehype-external-links'
@@ -8,13 +9,10 @@ import remarkUnwrapImages from 'remark-unwrap-images'
 
 import { remarkReadingTime } from './src/utils/remark-reading-time'
 
+// https://astro.build/config
 export default defineConfig({
   site: 'https://oriolcastro.me',
   prefetch: true,
-  experimental: {
-    contentCollectionCache: true,
-    devOverlay: false,
-  },
   markdown: {
     remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
     remarkRehype: {
@@ -42,6 +40,7 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
+    qwikdev(),
   ],
   vite: {
     plugins: [rawFonts(['.ttf'])],
