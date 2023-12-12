@@ -1,4 +1,8 @@
 {
-  "company": null,
+  "company": {
+    "title": "Senior Frontend Engineer",
+    "name": "Toddl",
+    "url": "https://www.toddl.co"
+  },
   "interest": "learning Go 🚀"
 }

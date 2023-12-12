@@ -34,8 +34,13 @@ const { data: status } = await getEntry('status', 'current')
       {
         status.company ? (
           <>
-            Working as a ${status.company.title} at{' '}
-            <a href={status.company.url} target="_blank" rel="noopener noreferrer">
+            Working as a {status.company.title} at{' '}
+            <a
+              href={status.company.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cactus-link"
+            >
               {status.company.name}
             </a>
           </>
