@@ -64,7 +64,7 @@ const { data: status } = await getEntry('status', 'current')
   </section>
   <section aria-label="Programmer carrer timeline" class="mt-16">
     <h2 class="title mb-4 text-xl">Timeline</h2>
-    <a href="/timeline" class="cactus-link mt-4" rel="prefetch">See all I've done</a>
+    <a href="/timeline" class="cactus-link mt-4" data-astro-prefetch>See all I've done</a>
     {allTimelineItemsByDate.map(item => <TimelineItem item={item} />)}
   </section>
 </PageLayout>
