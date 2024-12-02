@@ -25,10 +25,10 @@
         // button clicked, fire event
         button.addEventListener('click', e => {
           if (e.currentTarget instanceof HTMLButtonElement) {
-            let isDark = rootHasDarkClass()
+            const isDark = rootHasDarkClass()
 
             // invert theme
-            let themeChangeEvent = new CustomEvent('theme-change', {
+            const themeChangeEvent = new CustomEvent('theme-change', {
               detail: {
                 theme: isDark ? 'light' : 'dark',
               },

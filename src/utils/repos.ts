@@ -1,6 +1,6 @@
 import * as cheerio from 'cheerio'
 
-type Result = {
+interface Result {
   owner: string
   name: string | undefined
   link: string

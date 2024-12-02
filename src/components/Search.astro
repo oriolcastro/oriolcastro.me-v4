@@ -59,9 +59,13 @@ import '@pagefind/default-ui/css/ui.css'
   class SiteSearch extends HTMLElement {
     constructor() {
       super()
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const openBtn = this.querySelector<HTMLButtonElement>('button[data-open-modal]')!
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const closeBtn = this.querySelector<HTMLButtonElement>('button[data-close-modal]')!
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const dialog = this.querySelector('dialog')!
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const dialogFrame = this.querySelector('.dialog-frame')!
 
       const onWindowClick = (event: MouseEvent) => {
