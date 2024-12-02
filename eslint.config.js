@@ -3,7 +3,6 @@ import eslint from '@eslint/js'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import eslintPluginAstro from 'eslint-plugin-astro'
 import importPlugin from 'eslint-plugin-import'
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import tseslint from 'typescript-eslint'
 
@@ -12,7 +11,6 @@ export default tseslint.config(
   tseslint.configs.strict,
   tseslint.configs.stylistic,
   eslintPluginAstro.configs.recommended,
-  eslintPluginPrettierRecommended,
   importPlugin.flatConfigs.recommended,
   importPlugin.flatConfigs.typescript,
   eslintConfigPrettier,
