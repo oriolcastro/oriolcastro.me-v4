@@ -6,7 +6,7 @@ interface Result {
   link: string
   description: string | undefined
   image: string
-  website: never[] | undefined
+  website: string | never[] | undefined
   language: string | undefined
   languageColor: string | undefined
   stars: string | number
@@ -32,7 +32,7 @@ export async function getPinnedRepos(username: string) {
   for (const [index, item] of pinned.entries()) {
     const owner = getOwner($, item)
     const repo = getRepo($, item)
-    const link = 'https://github.com/' + (owner || username) + '/' + repo
+    const link = `https://github.com/${owner || username}/${repo}`
     const description = getDescription($, item)
     const image = `https://opengraph.githubassets.com/1/${owner || username}/${repo}`
     const website = await getWebsite(link)
@@ -90,9 +90,9 @@ function getWebsite(repo: string) {
         const site = $('.BorderGrid-cell')
         if (!site || site.length === 0) return []
 
-        let href
+        let href: string | undefined
         site.each((index: unknown, item) => {
-          if (index == 0) {
+          if (index === 0) {
             href = getHREF($, item)
           }
         })

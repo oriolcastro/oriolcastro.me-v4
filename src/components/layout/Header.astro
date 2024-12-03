@@ -16,7 +16,6 @@ const url = new URL(Astro.request.url)
   class MobileNavBtn extends HTMLElement {
     constructor() {
       super()
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const headerEl = document.getElementById('main-header')!
       const mobileButtonEl = document.getElementById('toggle-navigation-menu') as HTMLButtonElement
       let menuOpen = false

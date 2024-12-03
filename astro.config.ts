@@ -1,10 +1,11 @@
+import fs from 'node:fs'
+
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
-import { defineConfig } from 'astro/config'
 import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
-import fs from 'fs'
+import { defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeUnwrapImages from 'rehype-unwrap-images'
 
@@ -52,8 +53,8 @@ export default defineConfig({
 function rawFonts(ext: string[]) {
   return {
     name: 'vite-plugin-raw-fonts',
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    transform(_: any, id: any) {
+    // @ts-expect-error:next-line
+    transform(_, id) {
       if (ext.some(e => id.endsWith(e))) {
         const buffer = fs.readFileSync(id)
         return {

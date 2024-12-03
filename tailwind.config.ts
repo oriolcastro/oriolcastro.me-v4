@@ -37,10 +37,8 @@ export default {
       transitionProperty: {
         height: 'height',
       },
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       // Remove above once tailwindcss exposes theme type
-      typography: theme => ({
+      typography: (theme: (arg0: string) => unknown[]) => ({
         cactus: {
           css: {
             '--tw-prose-body': theme('colors.textColor / 1'),
@@ -121,7 +119,7 @@ export default {
   },
   plugins: [
     typographyPlugin,
-    plugin(function ({ addComponents }) {
+    plugin(({ addComponents }) => {
       addComponents({
         '.cactus-link': {
           '@apply underline underline-offset-2': {},
