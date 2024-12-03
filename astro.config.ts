@@ -2,11 +2,13 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import { defineConfig } from 'astro/config'
+import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
 import fs from 'fs'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeUnwrapImages from 'rehype-unwrap-images'
 
+import { expressiveCodeOptions } from './src/site.config'
 import { remarkReadingTime } from './src/utils/remark-reading-time'
 
 // https://astro.build/config
@@ -20,10 +22,6 @@ export default defineConfig({
         className: [''],
       },
     },
-    shikiConfig: {
-      theme: 'one-dark-pro',
-      wrap: true,
-    },
     rehypePlugins: [
       [
         rehypeExternalLinks,
@@ -36,12 +34,13 @@ export default defineConfig({
     ],
   },
   integrations: [
-    mdx({}),
+    expressiveCode(expressiveCodeOptions),
+    icon(),
     tailwind({
       applyBaseStyles: false,
     }),
     sitemap(),
-    icon(),
+    mdx({}),
   ],
   vite: {
     plugins: [rawFonts(['.ttf', '.woff'])],
