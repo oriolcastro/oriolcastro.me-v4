@@ -6,18 +6,23 @@ import tailwind from '@astrojs/tailwind'
 import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
-import rehypeExternalLinks from 'rehype-external-links'
-import rehypeUnwrapImages from 'rehype-unwrap-images'
 
 import { expressiveCodeOptions } from './src/site.config'
-import { remarkReadingTime } from './src/utils/remark-reading-time'
+
+// Rehype plugins
+import rehypeExternalLinks from 'rehype-external-links'
+import rehypeUnwrapImages from 'rehype-unwrap-images'
+// Remark plugins
+import remarkDirective from 'remark-directive' /* Handle ::: directives as nodes */
+import { remarkAdmonitions } from './src/plugins/remark-admonitions' /* Add admonitions */
+import { remarkReadingTime } from './src/plugins/remark-reading-time'
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://oriolcastro.me',
   prefetch: true,
   markdown: {
-    remarkPlugins: [remarkReadingTime],
+    remarkPlugins: [remarkReadingTime, remarkDirective, remarkAdmonitions],
     remarkRehype: {
       footnoteLabelProperties: {
         className: [''],

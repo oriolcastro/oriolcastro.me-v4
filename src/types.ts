@@ -22,3 +22,5 @@ export interface SiteMeta {
   ogImage?: string | undefined
   articleDate?: string | undefined
 }
+
+export type AdmonitionType = 'tip' | 'note' | 'important' | 'caution' | 'warning'
