@@ -7,7 +7,7 @@ export const siteConfig: SiteConfig = {
   author: 'Uri',
   // Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
   title: "Oriol's Blog",
-  // Meta property used as the default description meta property
+  // Used as the default description meta property and webmanifest description
   description: 'My personal blog.',
   // HTML lang property, found in src/layouts/Base.astro L:18
   lang: 'en-GB',

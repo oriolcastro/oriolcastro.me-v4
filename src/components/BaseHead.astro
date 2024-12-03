@@ -15,14 +15,23 @@ const socialImageURL = new URL(ogImage ? ogImage : '/social-card.png', Astro.url
 ---
 
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{siteTitle}</title>
 
-<!-- Icons / Favicon -->
-<link rel="icon" href="/favicon.ico" sizes="any" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/manifest.webmanifest" />
+{/* Icons */}
+<link href="/icon.png" rel="icon" type="image/png" />
+{
+  import.meta.env.PROD && (
+    <>
+      {/* Favicon & Apple Icon */}
+      <link rel="icon" href="/favicon-32x32.png" type="image/png" />
+      <link href="icons/apple-touch-icon.png" rel="apple-touch-icon" />
+      {/* Manifest */}
+      <link href="/manifest.webmanifest" rel="manifest" />
+    </>
+  )
+}
+{/* Canonical URL */}
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
