@@ -5,8 +5,9 @@ import { html } from 'satori-html'
 
 import RobotoMonoBold from '@/assets/roboto-mono-700.ttf'
 import RobotoMono from '@/assets/roboto-mono-regular.ttf'
+import { getAllPosts } from '@/data/post'
 import { siteConfig } from '@/site-config'
-import { getAllPosts, getFormattedDate } from '@/utils'
+import { getFormattedDate } from '@/utils'
 
 const ogOptions: SatoriOptions = {
   width: 1200,

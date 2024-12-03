@@ -6,7 +6,7 @@ interface Props {
 }
 
 const {
-  heading: { slug, text, depth, subheadings },
+  heading: { slug, text, depth, children },
 } = Astro.props
 ---
 
@@ -17,9 +17,9 @@ const {
     aria-label={`Scroll to section: ${text}`}><span class="me-0.5">#</span>{text}</a
   >
   {
-    !!subheadings.length && (
+    !!children.length && (
       <ul>
-        {subheadings.map(subheading => (
+        {children.map(subheading => (
           <Astro.self heading={subheading} />
         ))}
       </ul>

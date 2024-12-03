@@ -1,11 +1,12 @@
 ---
 import { getEntry } from 'astro:content'
 
-import PostPreview from '@/components/blog/PostPreview'
-import SocialList from '@/components/SocialList'
-import TimelineItem from '@/components/timeline/TimelineItem'
-import PageLayout from '@/layouts/Base'
-import { getAllPosts, getAllTimeline, sortMDByDate, sortTimelineAscByYear } from '@/utils'
+import PostPreview from '@/components/blog/PostPreview.astro'
+import SocialList from '@/components/SocialList.astro'
+import TimelineItem from '@/components/timeline/TimelineItem.astro'
+import {getAllPosts,sortMDByDate} from '@/data/post'
+import PageLayout from '@/layouts/Base.astro'
+import { getAllTimeline, sortTimelineAscByYear } from '@/utils'
 
 const MAX_POSTS = 10
 const MAX_TIMELINE_ITEMS = 1

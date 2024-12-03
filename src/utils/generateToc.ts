@@ -1,42 +1,35 @@
 import type { MarkdownHeading } from 'astro'
 
 export interface TocItem extends MarkdownHeading {
-  subheadings: TocItem[]
+  children: TocItem[]
 }
 
-function diveChildren(item: TocItem, depth: number): TocItem[] {
-  if (depth === 1 || !item.subheadings.length) {
-    return item.subheadings
+interface TocOpts {
+  maxHeadingLevel?: number | undefined
+  minHeadingLevel?: number | undefined
+}
+
+function injectChild(items: TocItem[], item: TocItem): void {
+  const lastItem = items.at(-1)
+  if (!lastItem || lastItem.depth >= item.depth) {
+    items.push(item)
   } else {
     // e.g., 2
-    return diveChildren(item.subheadings[item.subheadings.length - 1] as TocItem, depth - 1)
+    injectChild(lastItem.children, item)
+    return
   }
 }
 
-export function generateToc(headings: readonly MarkdownHeading[]) {
-  // this ignores/filters out h1 element(s)
-  const bodyHeadings = [...headings.filter(({ depth }) => depth > 1)]
+export function generateToc(
+  headings: readonly MarkdownHeading[],
+  { maxHeadingLevel = 4, minHeadingLevel = 2 }: TocOpts = {},
+) {
+  // by default this ignores/filters out h1 and h5 heading(s)
+  const bodyHeadings = headings.filter(
+    ({ depth }) => depth >= minHeadingLevel && depth <= maxHeadingLevel,
+  )
   const toc: TocItem[] = []
 
-  bodyHeadings.forEach(h => {
-    const heading: TocItem = { ...h, subheadings: [] }
-
-    // add h2 elements into the top level
-    if (heading.depth === 2) {
-      toc.push(heading)
-    } else {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      const lastItemInToc = toc[toc.length - 1]!
-      if (heading.depth < lastItemInToc.depth) {
-        throw new Error(`Orphan heading found: ${heading.text}.`)
-      }
-
-      // higher depth
-      // push into children, or children's children
-      const gap = heading.depth - lastItemInToc.depth
-      const target = diveChildren(lastItemInToc, gap)
-      target.push(heading)
-    }
-  })
+  for (const heading of bodyHeadings) injectChild(toc, { ...heading, children: [] })
   return toc
 }
