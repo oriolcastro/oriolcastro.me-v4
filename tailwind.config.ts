@@ -67,6 +67,9 @@ export default {
             blockquote: {
               borderLeftWidth: '0',
             },
+            kbd: {
+              '@apply dark:bg-textColor': '',
+            },
             hr: {
               borderTopStyle: 'dashed',
             },
@@ -76,6 +79,15 @@ export default {
             'thead th': {
               fontWeight: '700',
               borderBottom: '1px dashed #666',
+            },
+            'th[align="center"], td[align="center"]': {
+              'text-align': 'center',
+            },
+            'th[align="right"], td[align="right"]': {
+              'text-align': 'right',
+            },
+            'th[align="left"], td[align="left"]': {
+              'text-align': 'left',
             },
             /* Admonitions/Aside css*/
             '.aside': {

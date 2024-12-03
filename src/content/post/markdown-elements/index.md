@@ -148,13 +148,24 @@ function demo() {
 | engine | engine to be used for processing templates. Handlebars is the default.    |
 | ext    | extension to be used for dest files.                                      |
 
-Right aligned columns
+### Table Alignment
 
-| Option |                                                               Description |
-| -----: | ------------------------------------------------------------------------: |
-|   data | path to data files to supply the data that will be passed into templates. |
-| engine |    engine to be used for processing templates. Handlebars is the default. |
-|    ext |                                      extension to be used for dest files. |
+| Item         | Price | # In stock |
+| ------------ | :---: | ---------: |
+| Juicy Apples | 1.99  |        739 |
+| Bananas      | 1.89  |          6 |
+
+### Keyboard elements
+
+| Action                | Shortcut                                   |
+| --------------------- | ------------------------------------------ |
+| Vertical split        | <kbd>Alt+Shift++</kbd>                     |
+| Horizontal split      | <kbd>Alt+Shift+-</kbd>                     |
+| Auto split            | <kbd>Alt+Shift+d</kbd>                     |
+| Switch between splits | <kbd>Alt</kbd> + arrow keys                |
+| Resizing a split      | <kbd>Alt+Shift</kbd> + arrow keys          |
+| Close a split         | <kbd>Ctrl+Shift+W</kbd>                    |
+| Maximize a pane       | <kbd>Ctrl+Shift+P</kbd> + Toggle pane zoom |
 
 ## Images
 
