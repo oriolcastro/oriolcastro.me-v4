@@ -52,10 +52,11 @@
     "unist-util-visit": "5.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "1.9.4",
     "@commitlint/cli": "19.6.0",
     "@commitlint/config-conventional": "19.6.0",
-    "@iconify-json/mdi": "1.2.1",
+    "@iconify-json/lucide": "1.2.18",
+    "@iconify-json/simple-icons": "^1.2.14",
     "@pagefind/default-ui": "1.2.0",
     "@resvg/resvg-js": "2.6.2",
     "@tailwindcss/typography": "0.5.15",
@@ -65,18 +66,18 @@
     "is-ci": "3.0.1",
     "lint-staged": "15.2.10",
     "pagefind": "1.2.0",
-    "prettier": "3.4.1",
+    "prettier": "3.4.2",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.6.9",
     "reading-time": "1.5.0",
     "rehype-unwrap-images": "1.0.0",
     "simple-git-hooks": "2.11.1",
     "sort-package-json": "2.12.0",
-    "tailwindcss": "3.4.15",
+    "tailwindcss": "3.4.16",
     "typescript": "5.7.2",
-    "typescript-eslint": "8.16.0"
+    "typescript-eslint": "8.17.0"
   },
-  "packageManager": "pnpm@9.14.4",
+  "packageManager": "pnpm@9.15.0",
   "pnpm": {
     "overrides": {
       "array-includes": "npm:@nolyfill/array-includes@latest",
