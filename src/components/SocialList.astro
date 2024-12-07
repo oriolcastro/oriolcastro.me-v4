@@ -7,33 +7,33 @@ import { Icon } from 'astro-icon/components'
 */
 const socialLinks = [
   {
-    name: 'mdi:github',
+    name: 'lucide:github',
     friendlyName: 'Github',
     link: 'https://github.com/oriolcastro',
   },
   {
-    name: 'mdi:linkedin',
+    name: 'lucide:linkedin',
     friendlyName: 'LinkedIn',
     link: 'https://www.linkedin.com/in/oriolcaar/',
   },
   {
-    name: 'mdi:email',
+    name: 'lucide:mail',
     friendlyName: 'email',
     link: 'mailto:hola@oriolcastro.me',
   },
 
   {
-    name: 'mdi:twitter',
+    name: 'lucide:twitter',
     friendlyName: 'X (Twitter)',
     link: 'https://twitter.com/oriolcastro_',
   },
   {
-    name: 'mdi:mastodon',
-    friendlyName: 'Mastodon',
-    link: 'https://mastodon.social/@oriolcastro_',
+    name: 'simple-icons:bluesky',
+    friendlyName: 'Bluesky',
+    link: 'https://bsky.app/profile/oriolcastro.me',
   },
   {
-    name: 'mdi:instagram',
+    name: 'lucide:instagram',
     friendlyName: 'instagram',
     link: 'https://www.instagram.com/oriolcastro_/',
   },
@@ -54,7 +54,7 @@ const socialLinks = [
               target="_blank"
               rel={`noopener noreferrer me ${isEmail ? 'authn' : ''}`}
             >
-              <Icon class="h-8 w-8" name={name} aria-hidden="true" focusable="false" />
+              <Icon class="h-6 w-6" name={name} aria-hidden="true" focusable="false" />
               <span class="sr-only">{friendlyName}</span>
             </a>
           </li>
