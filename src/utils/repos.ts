@@ -29,6 +29,7 @@ export async function getPinnedRepos(username: string) {
   if (!pinned || pinned.length === 0) return []
 
   const result: Result[] = []
+  // TODO: A part from the language from the user profile fetch the repo page in order to extract the topics too.
   for (const [index, item] of pinned.entries()) {
     const owner = getOwner($, item)
     const repo = getRepo($, item)
@@ -37,6 +38,7 @@ export async function getPinnedRepos(username: string) {
     const image = `https://opengraph.githubassets.com/1/${owner || username}/${repo}`
     const website = await getWebsite(link)
     const language = getLanguage($, item)
+    // TODO: compute text color from background to have proper contrast
     const languageColor = getLanguageColor($, item)
     const stars = getStars($, item)
     const forks = getForks($, item)
