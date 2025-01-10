@@ -1,14 +1,14 @@
 {
-	"extends": "astro/tsconfigs/strictest",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["src/*"]
-		},
-		"lib": ["es2022", "dom", "dom.iterable"],
-		"strictNullChecks": true, // add if using `base` template
-		"allowJs": true // required, and included with all Astro templates
-	},
-	"include": ["./.eslint.config.js", ".astro/types.d.ts", "**/*"],
-	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
+  "extends": "astro/tsconfigs/strictest",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "lib": ["es2022", "dom", "dom.iterable"],
+    "strictNullChecks": true, // add if using `base` template
+    "allowJs": true // required, and included with all Astro templates
+  },
+  "include": ["./.eslint.config.js", ".astro/types.d.ts", "**/*"],
+  "exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
 }
