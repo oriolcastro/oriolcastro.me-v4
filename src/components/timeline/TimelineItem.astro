@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from 'astro:content'
+import { type CollectionEntry, render } from 'astro:content'
 
 import TextLink from '@/components/TextLink.astro'
 import TimelineItemContent from '@/components/timeline/TimelineItemContent.astro'
@@ -10,7 +10,7 @@ interface Props {
 }
 const { item } = Astro.props
 
-const { Content } = await item.render()
+const { Content } = await render(item)
 ---
 
 <h3 class="my-3 text-lg font-bold" id={item.data.year.toString()}>{item.data.year}</h3>

@@ -4,14 +4,21 @@ import type { GetStaticPaths, Page } from 'astro'
 
 import Pagination from '@/components/Paginator.astro'
 import PostPreview from '@/components/blog/PostPreview.astro'
-import { getAllPosts, getUniqueTags, sortMDByDate } from '@/data/post'
+import { getAllPosts, getUniqueTags, groupPostsByYear } from '@/data/post'
 import PageLayout from '@/layouts/Base.astro'
+import { collectionDateSort } from '@/utils/date'
 
 export const getStaticPaths = (async ({ paginate }) => {
+  const MAX_POSTS_PER_PAGE = 10
+  const MAX_TAGS = 7
+
   const allPosts = await getAllPosts()
-  const allPostsByDate = sortMDByDate(allPosts)
-  const uniqueTags = getUniqueTags(allPosts)
-  return paginate(allPostsByDate, { props: { uniqueTags }, pageSize: 10 })
+  const uniqueTags = getUniqueTags(allPosts).slice(0, MAX_TAGS)
+
+  return paginate(allPosts.sort(collectionDateSort), {
+    pageSize: MAX_POSTS_PER_PAGE,
+    props: { uniqueTags },
+  })
 }) satisfies GetStaticPaths
 
 interface Props {
@@ -43,7 +50,7 @@ const paginationProps = {
 ---
 
 <PageLayout meta={meta}>
-  <h1 class="title mb-6">Posts</h1>
+  <h1 class="title mb-6 flex items-center gap-3">Posts</h1>
   <div class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8">
     <section aria-label="Blog post list">
       <ul class="space-y-8 text-start">
@@ -79,21 +86,21 @@ const paginationProps = {
             </svg>
             Tags
           </h2>
-          <ul class="flex flex-wrap gap-2 text-bgColor">
+          <ul class="flex flex-wrap gap-2">
             {uniqueTags.map(tag => (
               <li>
                 <a
-                  class="flex items-center justify-center rounded-lg bg-accent p-1"
+                  class="cactus-link flex items-center justify-center rounded-lg bg-accent p-1"
                   href={`/tags/${tag}/`}
                   aria-label={`View all posts with the tag: ${tag}`}
                 >
-                  {tag}
+                  #{tag}
                 </a>
               </li>
             ))}
           </ul>
           <span class="mt-4 block sm:text-end">
-            <a class="sm:hover:text-accent" href="/tags/" aria-label="View all blog categories">
+            <a class="sm:hover:text-link" href="/tags/" aria-label="View all blog categories">
               View all →
             </a>
           </span>

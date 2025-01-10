@@ -1,21 +1,35 @@
 ---
-import { getEntry } from 'astro:content'
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content'
 
 import SocialList from '@/components/SocialList.astro'
 import PostPreview from '@/components/blog/PostPreview.astro'
+import Note from '@/components/note/Note.astro'
 import TimelineItem from '@/components/timeline/TimelineItem.astro'
-import { getAllPosts, sortMDByDate } from '@/data/post'
-import PageLayout from '@/layouts/Base.astro'
-import { getAllTimeline, sortTimelineAscByYear } from '@/utils'
 
+import { getAllPosts } from '@/data/post'
+import { getAllTimeline, sortTimelineAscByYear } from '@/data/timeline'
+import PageLayout from '@/layouts/Base.astro'
+import { collectionDateSort } from '@/utils/date'
+
+// Posts
 const MAX_POSTS = 10
 const MAX_TIMELINE_ITEMS = 1
 const allPosts = await getAllPosts()
-const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
+
+const allPostsByDate = allPosts
+  // .sort(collectionDateSort)
+  .slice(0, MAX_POSTS) as CollectionEntry<'post'>[]
+
+// Notes
+const MAX_NOTES = 5
+const allNotes = await getCollection('note')
+const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES)
+
+// Timeline
 const allTimelineItems = await getAllTimeline()
 const allTimelineItemsByDate = sortTimelineAscByYear(allTimelineItems).slice(-MAX_TIMELINE_ITEMS)
 
-const { data: status } = await getEntry('status', 'current')
+const status = await getEntry('work', 'current')
 ---
 
 <PageLayout meta={{ title: 'Home' }}>
@@ -31,22 +45,22 @@ const { data: status } = await getEntry('status', 'current')
     <h2 class="title mb-4 text-xl">Status</h2>
     <p class="mb-2">
       {
-        status.company ? (
+        status && status.data.company ? (
           <>
-            Working as a {status.company.title} at
+            Working as a {status.data.company.title} at
             <a
-              href={status.company.url}
+              href={status.data.company.url}
               target="_blank"
               rel="noopener noreferrer"
               class="cactus-link"
             >
-              {status.company.name}
+              {status.data.company.name}
             </a>
           </>
         ) : (
           '🔍 Looking for my new challenge'
         )
-      } and {status.interest}
+      } and {status?.data.interest}
     </p>
   </section>
   <section aria-label="Blog post list" class="mt-16">
@@ -61,6 +75,20 @@ const { data: status } = await getEntry('status', 'current')
       }
     </ul>
   </section>
+  {
+    latestNotes.length > 0 && (
+      <section class="mt-16">
+        <h2 class="title mb-4 text-xl">Notes</h2>
+        <ul class="space-y-4" role="list">
+          {latestNotes.map(note => (
+            <li>
+              <Note note={note} as="h3" isPreview />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
   <section aria-label="Programmer carrer timeline" class="mt-16">
     <h2 class="title mb-4 text-xl">Timeline</h2>
     <a href="/timeline" class="cactus-link mt-4" data-astro-prefetch>See all I've done</a>

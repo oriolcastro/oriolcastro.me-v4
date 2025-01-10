@@ -6,7 +6,7 @@ import { html } from 'satori-html'
 import RobotoMonoBold from '@/assets/roboto-mono-700.ttf'
 import RobotoMono from '@/assets/roboto-mono-regular.ttf'
 import { getAllPosts } from '@/data/post'
-import { siteConfig } from '@/site-config'
+import { siteConfig } from '@/site.config'
 import { getFormattedDate } from '@/utils'
 
 const ogOptions: SatoriOptions = {
@@ -68,7 +68,7 @@ export async function getStaticPaths() {
   return posts
     .filter(({ data }) => !data.ogImage)
     .map(post => ({
-      params: { slug: post.slug },
+      params: { slug: post.id },
       props: {
         title: post.data.title,
         pubDate: post.data.updatedDate ?? post.data.publishDate,

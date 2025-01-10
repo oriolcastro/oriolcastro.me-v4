@@ -1,26 +1,4 @@
 {
-  // "editor.formatOnSave": true,
-  // "editor.codeActionsOnSave": {
-  //   "source.fixAll.eslint": "explicit"
-  // },
-  // "[markdown]": {
-  //   "editor.wordWrap": "on",
-  //   "editor.codeActionsOnSave": {
-  //     "source.fixAll.markdownlint": "explicit"
-  //   }
-  // },
-  // "prettier.documentSelectors": ["**/*.astro"],
-  // "eslint.validate": [
-  //   "javascript",
-  //   "javascriptreact",
-  //   "astro", // Enable .astro
-  //   "typescript", // Enable .ts
-  //   "typescriptreact"
-  // ],
-  // "[astro]": {
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
-  // },
-  // "prettier.configPath": ".prettierrc.js"
   "[javascript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
@@ -39,14 +17,11 @@
   "[jsonc]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
-  "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
-  },
+  "prettier.documentSelectors": ["**/*.astro"],
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports": "never",
     "source.organizeImports.biome": "explicit",
-    "source.fixAll": "never",
     "quickfix.biome": "explicit"
   },
   "[markdown]": {
