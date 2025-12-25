@@ -10,6 +10,7 @@ import { getAllPosts } from '@/data/post'
 import { getAllTimeline, sortTimelineAscByYear } from '@/data/timeline'
 import PageLayout from '@/layouts/Base.astro'
 import { collectionDateSort } from '@/utils/date'
+import TextLink from '@/components/TextLink.astro'
 
 // Posts
 const MAX_POSTS = 10
@@ -59,14 +60,9 @@ const status = await getEntry('work', 'current')
         status && status.data.company ? (
           <>
             Working as a {status.data.company.title} at
-            <a
-              href={status.data.company.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="cactus-link"
-            >
+            <TextLink href={status.data.company.url} class="cactus-link">
               {status.data.company.name}
-            </a>
+            </TextLink>
           </>
         ) : (
           '🔍 Looking for my new challenge'
