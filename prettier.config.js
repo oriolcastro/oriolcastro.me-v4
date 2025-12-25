@@ -4,7 +4,7 @@ export default {
   semi: false,
   singleQuote: true,
   arrowParens: 'avoid',
-  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss' /* Must come last */],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
   overrides: [
     {
       files: '**/*.astro',

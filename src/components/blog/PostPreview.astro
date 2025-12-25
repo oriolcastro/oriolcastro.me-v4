@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content'
+import { Icon } from 'astro-icon/components'
 import FormattedDate from '@/components/FormattedDate.astro'
 import type { HTMLTag, Polymorphic } from 'astro/types'
 
@@ -16,14 +17,23 @@ const { post, as: Tag = 'div', withDesc = false } = Astro.props
   date={post.data.publishDate}
 />
 <Tag>
-  {post.data.draft && <span class="text-red-500">(Draft) </span>}
+  {post.data.draft && <span class="text-red-500">(Draft)</span>}
+  {post.data.draft && ' '}
+  {
+    post.data.pinned && (
+      <Icon
+        name="lucide:star"
+        class="inline-block h-4 w-4 text-amber-500"
+        aria-label="Pinned post"
+      />
+    )
+  }
+  {post.data.pinned && ' '}
   <a
     href={`/posts/${post.id}/`}
     class="cactus-link"
     data-astro-prefetch
-    transition:name={post.data.title}
+    transition:name={post.data.title}>{post.data.title}</a
   >
-    {post.data.title}
-  </a>
 </Tag>
 {withDesc && <q class="line-clamp-3 block italic">{post.data.description}</q>}

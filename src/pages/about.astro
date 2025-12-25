@@ -16,7 +16,7 @@ const meta = {
 <PageLayout meta={meta}>
   <Image
     src={aboutImg}
-    class="mb-4 aspect-cover object-cover"
+    class="aspect-cover mb-4 object-cover"
     alt="About myself"
     loading="eager"
     fetchpriority="high"
@@ -39,25 +39,23 @@ const meta = {
       </p>
       <p>
         Since then, I have worked first as a freelancer while leveling up my skills, then at
-        <TextLink href="https://www.xceed.me/">Xceed</TextLink>, <TextLink
-          href="https://www.immfly.com/"
-        >
-          Immfly
-        </TextLink>,
-        <TextLink href="https://www.gigapipe.com/">Gigapipe</TextLink>, and <TextLink
-          href="https://toddl.co/">toddl.co</TextLink
-        >. I consider myself a product-centric engineer, I thrive when outlining, architecting, and
-        developing enjoyable and crafted products that scale.
+        <TextLink href="https://www.xceed.me/">Xceed</TextLink>,
+        <TextLink href="https://www.immfly.com/">Immfly</TextLink>,
+        <TextLink href="https://www.gigapipe.com/">Gigapipe</TextLink>, and
+        <TextLink href="https://toddl.co/">toddl.co</TextLink>. I consider myself a product-centric
+        engineer, I thrive when outlining, architecting, and developing enjoyable and crafted
+        products that scale.
       </p>
       <p>
-        What it means to be a <b>product engineer</b> to me? Being someone that pursue solving users
-        problems by building products from inception to shipping. <TextLink
-          href="https://leerob.io/blog/product-engineers#what-are-product-engineers"
+        What it means to be a <b>product engineer</b> to me? Being someone that pursue solving users problems
+        by building products from inception to shipping.
+        <TextLink href="https://leerob.io/blog/product-engineers#what-are-product-engineers"
+          >This article from Lee Robinson</TextLink
         >
-          This article from Lee Robinson
-        </TextLink> and <TextLink href="https://posthog.com/blog/what-is-a-product-engineer"
+        and <TextLink href="https://posthog.com/blog/what-is-a-product-engineer"
           >this other from PostHog</TextLink
-        > expand that concept very well.
+        >
+        expand that concept very well.
       </p>
       <p class="text-justify">
         My motto has always been: <span class="italic"
@@ -65,7 +63,7 @@ const meta = {
         >
       </p>
 
-      <h3 class="text-xl font-semibold text-accent-2">Make it easier</h3>
+      <h3 class="text-accent-2 text-xl font-semibold">Make it easier</h3>
       <p>
         The understanding of how things work and the desire to find the best possible solution to a
         problem is a great fuel for exploration. That's why I became an engineer.
@@ -81,7 +79,7 @@ const meta = {
         dedication and thanks to the vast online resources available nowadays I was able to achieve
         my goal.
       </p>
-      <h3 class="text-xl font-semibold text-accent-2">Do it right</h3>
+      <h3 class="text-accent-2 text-xl font-semibold">Do it right</h3>
       <p>
         I'm not a fanboy of any particular stack as I tend to consider all technologies as just
         tools for the job. For each project, I try to select the best set of tools considering the
@@ -95,24 +93,19 @@ const meta = {
         concepts, and I made my incursions in the backend world and programming languages beyond
         JavaScript like Python, Go or PHP.
       </p>
-      <h3 class="text-xl font-semibold text-accent-2">Achieve it together!</h3>
+      <h3 class="text-accent-2 text-xl font-semibold">Achieve it together!</h3>
       <p>
         Aside of developing a carrer I have always considered that as a citizen is very important to
         be involved in some form of social activism.
       </p>
       <p>
-        From my time in the <em>free time educational movement (Esplais)</em> with <TextLink
-          href="https://www.dracmagic.org/"
-        >
-          Drac Màgic
-        </TextLink> first and as part of the board of <TextLink href="https://www.esplac.cat/">
-          Esplais Catalans
-        </TextLink> later, and also as an active member of <TextLink
-          href="http://www.launiovilanovina.cat/"
-        >
-          La Unió Vilanovina
-        </TextLink> and the <TextLink href="https://fme.cat">FME.</TextLink> I have achieved some key
-        abilities that I use now in my professional career.
+        From my time in the <em>free time educational movement (Esplais)</em> with
+        <TextLink href="https://www.dracmagic.org/">Drac Màgic</TextLink> first and as part of the board
+        of <TextLink href="https://www.esplac.cat/">Esplais Catalans</TextLink> later, and also as an
+        active member of
+        <TextLink href="http://www.launiovilanovina.cat/">La Unió Vilanovina</TextLink> and the
+        <TextLink href="https://fme.cat">FME.</TextLink> I have achieved some key abilities that I use
+        now in my professional career.
       </p>
       <ul class="list-inside list-disc">
         <li>The <b>teamwork</b> spirit as a must.</li>
@@ -126,14 +119,15 @@ const meta = {
       </ul>
     </div>
     <div>
-      <h4 class="text-l font-semibold text-accent-2">Download my resume</h4>
+      <h4 class="text-l text-accent-2 font-semibold">Download my resume</h4>
       <a
         href={cv}
         download
-        class="mt-4 inline-flex items-center justify-center rounded bg-link px-3 py-2 font-bold text-white"
-        ><Icon class="mr-2 h-6 w-6" name="lucide:file-down" aria-hidden="true" focusable="false" />
-        Resume</a
+        class="bg-link mt-4 inline-flex items-center justify-center rounded px-3 py-2 font-bold text-white"
       >
+        <Icon class="mr-2 h-6 w-6" name="lucide:file-down" aria-hidden="true" focusable="false" />
+        Resume
+      </a>
     </div>
   </div>
 </PageLayout>

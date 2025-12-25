@@ -1,5 +1,8 @@
 import * as cheerio from 'cheerio'
 
+type CheerioRoot = ReturnType<typeof cheerio.load>
+type CheerioElement = Parameters<CheerioRoot>[0]
+
 interface Result {
   owner: string
   name: string | undefined
@@ -61,26 +64,26 @@ export async function getPinnedRepos(username: string) {
   return result
 }
 
-function getOwner($: cheerio.Root, item: cheerio.Element) {
+function getOwner($: CheerioRoot, item: CheerioElement) {
   try {
     return $(item).find('.owner').text()
-  } catch (error) {
+  } catch {
     return undefined
   }
 }
 
-function getRepo($: cheerio.Root, item: cheerio.Element) {
+function getRepo($: CheerioRoot, item: CheerioElement) {
   try {
     return $(item).find('.repo').text()
-  } catch (error) {
+  } catch {
     return undefined
   }
 }
 
-function getDescription($: cheerio.Root, item: cheerio.Element) {
+function getDescription($: CheerioRoot, item: CheerioElement) {
   try {
     return $(item).find('.pinned-item-desc').text().trim()
-  } catch (error) {
+  } catch {
     return undefined
   }
 }
@@ -110,42 +113,42 @@ function getWebsite(repo: string) {
     })
 }
 
-function getHREF($: cheerio.Root, item: cheerio.Element) {
+function getHREF($: CheerioRoot, item: CheerioElement) {
   try {
     return $(item).find('a[href^="https"]').attr('href')?.trim()
-  } catch (error) {
+  } catch {
     return undefined
   }
 }
 
-function getStars($: cheerio.Root, item: cheerio.Element) {
+function getStars($: CheerioRoot, item: CheerioElement) {
   try {
     return $(item).find('a[href$="/stargazers"]').text().trim()
-  } catch (error) {
+  } catch {
     return 0
   }
 }
 
-function getForks($: cheerio.Root, item: cheerio.Element) {
+function getForks($: CheerioRoot, item: CheerioElement) {
   try {
     return $(item).find('a[href$="/network/members"]').text().trim()
-  } catch (error) {
+  } catch {
     return 0
   }
 }
 
-function getLanguage($: cheerio.Root, item: cheerio.Element) {
+function getLanguage($: CheerioRoot, item: CheerioElement) {
   try {
     return $(item).find('[itemprop="programmingLanguage"]').text()
-  } catch (error) {
+  } catch {
     return undefined
   }
 }
 
-function getLanguageColor($: cheerio.Root, item: cheerio.Element) {
+function getLanguageColor($: CheerioRoot, item: CheerioElement) {
   try {
     return $(item).find('.repo-language-color').css('background-color')
-  } catch (error) {
+  } catch {
     return undefined
   }
 }

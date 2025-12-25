@@ -24,9 +24,34 @@ const {
   <head>
     <BaseHead title={title} description={description} ogImage={ogImage} articleDate={articleDate} />
     <ViewTransitions />
+    <script is:inline>
+      // Speculation Rules API - progressive enhancement
+      if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) {
+        const script = document.createElement('script')
+        script.type = 'speculationrules'
+        script.textContent = JSON.stringify({
+          prerender: [
+            {
+              source: 'list',
+              urls: Array.from(document.querySelectorAll('a[href]'))
+                .map(a => a.href)
+                .filter(href => {
+                  try {
+                    const url = new URL(href, window.location.href)
+                    return url.origin === window.location.origin
+                  } catch {
+                    return false
+                  }
+                }),
+            },
+          ],
+        })
+        document.head.appendChild(script)
+      }
+    </script>
   </head>
   <body
-    class="mx-auto flex min-h-screen max-w-3xl flex-col bg-bgColor px-4 pt-16 font-mono text-sm font-normal text-textColor antialiased sm:px-8"
+    class="bg-bgColor text-textColor mx-auto flex min-h-screen max-w-3xl flex-col px-4 pt-16 font-mono text-sm font-normal antialiased sm:px-8"
   >
     <ThemeProvider />
     <SkipLink />
