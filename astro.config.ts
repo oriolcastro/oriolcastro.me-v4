@@ -5,12 +5,10 @@ import sitemap from '@astrojs/sitemap'
 import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
 import robotsTxt from 'astro-robots-txt'
-import webmanifest from 'astro-webmanifest'
 import { defineConfig } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
 
 import { expressiveCodeOptions } from './src/site.config'
-import { siteConfig } from './src/site.config'
 
 // Rehype plugins
 import rehypeExternalLinks from 'rehype-external-links'
@@ -43,46 +41,7 @@ export default defineConfig({
       rehypeUnwrapImages,
     ],
   },
-  integrations: [
-    expressiveCode(expressiveCodeOptions),
-    icon(),
-    sitemap(),
-    mdx({}),
-    robotsTxt(),
-    webmanifest({
-      // See: https://github.com/alextim/astro-lib/blob/main/packages/astro-webmanifest/README.md
-      name: siteConfig.title,
-      description: siteConfig.description,
-      lang: siteConfig.lang,
-      icon: 'public/icon.png',
-      icons: [
-        {
-          src: 'icons/apple-touch-icon.png',
-          sizes: '180x180',
-          type: 'image/png',
-        },
-        {
-          src: 'icons/icon-192.png',
-          sizes: '192x192',
-          type: 'image/png',
-        },
-        {
-          src: 'icons/icon-512.png',
-          sizes: '512x512',
-          type: 'image/png',
-        },
-      ],
-      start_url: '/',
-      background_color: '#1d1f21',
-      theme_color: '#2bbc8a',
-      display: 'standalone',
-      config: {
-        insertFaviconLinks: false,
-        insertThemeColorMeta: false,
-        insertManifestLink: false,
-      },
-    }),
-  ],
+  integrations: [expressiveCode(expressiveCodeOptions), icon(), sitemap(), mdx({}), robotsTxt()],
   vite: {
     plugins: [tailwindcss(), rawFonts(['.ttf', '.woff'])],
     optimizeDeps: {

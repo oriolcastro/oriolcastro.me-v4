@@ -34,7 +34,6 @@
     "astro-expressive-code": "0.41.5",
     "astro-icon": "1.1.5",
     "astro-robots-txt": "1.0.0",
-    "astro-webmanifest": "1.0.0",
     "cheerio": "1.1.2",
     "hastscript": "9.0.1",
     "mdast-util-directive": "3.1.0",
