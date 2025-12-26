@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
 
 import icon from '@/assets/icon.png'
 import { menuLinks } from '@/site.config'
@@ -7,7 +8,15 @@ import { menuLinks } from '@/site.config'
 import Search from '@/components/Search.astro'
 import ThemeToggle from '@/components/ThemeToggle.astro'
 
-const url = new URL(Astro.request.url)
+// Check if there are any notes in the collection
+const allNotes = await getCollection('note')
+const hasNotes = allNotes.length > 0
+
+// Filter menu links to exclude Notes if there are none
+const filteredMenuLinks = menuLinks.filter(link => {
+  if (link.path === '/notes/' && !hasNotes) return false
+  return true
+})
 ---
 
 <script>
@@ -64,7 +73,7 @@ const url = new URL(Astro.request.url)
       aria-label="Main menu"
     >
       {
-        menuLinks.map(link => (
+        filteredMenuLinks.map(link => (
           <a
             href={link.path}
             class="px-4 py-4 underline-offset-2 sm:py-0 sm:hover:underline"

@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap'
 import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
 import robotsTxt from 'astro-robots-txt'
-import { defineConfig } from 'astro/config'
+import { defineConfig, envField } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
 
 import { expressiveCodeOptions } from './src/site.config'
@@ -22,6 +22,7 @@ import { remarkReadingTime } from './src/plugins/remark-reading-time'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://oriolcastro.me',
+  trailingSlash: 'always',
   prefetch: true,
   markdown: {
     remarkPlugins: [remarkReadingTime, remarkDirective, remarkGithubCard, remarkAdmonitions],
@@ -42,6 +43,22 @@ export default defineConfig({
     ],
   },
   integrations: [expressiveCode(expressiveCodeOptions), icon(), sitemap(), mdx({}), robotsTxt()],
+  env: {
+    schema: {
+      SITE_URL: envField.string({
+        context: 'client',
+        access: 'public',
+        default: 'https://oriolcastro.me',
+      }),
+    },
+  },
+  experimental: {
+    // Enable Content Security Policy for enhanced security
+    csp: {
+      algorithm: 'SHA-256',
+      directives: ["default-src 'self'", "img-src 'self' data: https:"],
+    },
+  },
   vite: {
     plugins: [tailwindcss(), rawFonts(['.ttf', '.woff'])],
     optimizeDeps: {
