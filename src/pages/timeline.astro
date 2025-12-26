@@ -1,5 +1,6 @@
 ---
 import TimelineItem from '@/components/timeline/TimelineItem.astro'
+import TimelineTOC from '@/components/timeline/TimelineTOC.astro'
 import { getAllTimeline, sortTimelineAscByYear } from '@/data/timeline'
 import PageLayout from '@/layouts/Base.astro'
 
@@ -13,9 +14,12 @@ const meta = {
 ---
 
 <PageLayout meta={meta}>
-  <div class="space-y-6">
-    <h1 class="title">Timeline</h1>
-    <!-- <p>Explain a little bit what is this page about</p> -->
-    {allTimelineItemsByDate.map(item => <TimelineItem item={item} />)}
+  <div class="flex w-full flex-col gap-x-10 lg:flex-row lg:items-start">
+    <div class="order-1 flex-1 space-y-6">
+      <h1 class="title">Timeline</h1>
+      <!-- <p>Explain a little bit what is this page about</p> -->
+      {allTimelineItemsByDate.map(item => <TimelineItem item={item} />)}
+    </div>
+    <TimelineTOC timelineItems={allTimelineItems} />
   </div>
 </PageLayout>

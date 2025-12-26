@@ -1,0 +1,117 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  timelineItems: CollectionEntry<'timeline'>[]
+}
+
+const { timelineItems } = Astro.props
+
+const years = [...new Set(timelineItems.map(item => item.data.year))].sort((a, b) => a - b)
+---
+
+<aside class="sticky top-20 order-2 -me-32 hidden basis-64 lg:block">
+  <nav aria-label="Timeline navigation">
+    <ul class="space-y-1 text-xs">
+      {
+        years.map(year => (
+          <li>
+            <a
+              href={`#${year}`}
+              data-year={year}
+              class="timeline-toc-link hover:text-accent hover:bg-accent/10 block rounded px-2 py-1 transition-colors"
+              aria-label={`Jump to ${year}`}
+            >
+              {year}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</aside>
+
+<script>
+  function initTimelineTOC() {
+    const tocLinks = document.querySelectorAll('.timeline-toc-link')
+    const yearSections = Array.from(tocLinks).map(link => {
+      const year = link.getAttribute('data-year')
+      return {
+        link,
+        section: document.getElementById(year || ''),
+        year,
+      }
+    })
+
+    function updateActiveLink() {
+      let activeYear: string | null = null
+      const scrollOffset = 240
+
+      for (let i = yearSections.length - 1; i >= 0; i--) {
+        const item = yearSections[i]
+        if (!item) continue
+
+        const { section, year } = item
+        if (section) {
+          const sectionTop = section.offsetTop
+          if (window.scrollY + scrollOffset >= sectionTop) {
+            activeYear = year
+            break
+          }
+        }
+      }
+
+      if (!activeYear && yearSections.length > 0 && yearSections[0]) {
+        activeYear = yearSections[0].year
+      }
+
+      tocLinks.forEach(link => {
+        const linkYear = link.getAttribute('data-year')
+        if (linkYear === activeYear) {
+          link.classList.add('text-accent', 'font-bold', 'bg-accent/10')
+        } else {
+          link.classList.remove('text-accent', 'font-bold', 'bg-accent/10')
+        }
+      })
+    }
+
+    let scrollTimeout: ReturnType<typeof setTimeout> | undefined
+    window.addEventListener('scroll', () => {
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout)
+      }
+      scrollTimeout = setTimeout(updateActiveLink, 10)
+    })
+
+    updateActiveLink()
+    window.addEventListener('hashchange', () => {
+      setTimeout(updateActiveLink, 100)
+    })
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault()
+        const year = link.getAttribute('data-year')
+        const targetSection = document.getElementById(year || '')
+        if (targetSection) {
+          const headerOffset = 40
+          const elementPosition = targetSection.offsetTop
+          const offsetPosition = elementPosition - headerOffset
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          })
+
+          window.history.pushState(null, '', `#${year}`)
+
+          setTimeout(updateActiveLink, 100)
+        }
+      })
+    })
+  }
+
+  initTimelineTOC()
+
+  document.addEventListener('astro:after-swap', initTimelineTOC)
+</script>

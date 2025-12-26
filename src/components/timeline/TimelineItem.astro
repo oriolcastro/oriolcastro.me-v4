@@ -13,7 +13,11 @@ const { item } = Astro.props
 const { Content } = await render(item)
 ---
 
-<h3 class="my-3 text-lg font-bold" id={item.data.year.toString()}>{item.data.year}</h3>
+<h3 class="my-3 text-lg font-bold" id={item.data.year.toString()}>
+  <a href={`#${item.data.year}`} class="hover:text-accent transition-colors">
+    {item.data.year}
+  </a>
+</h3>
 <div class="border-accent flex flex-col border-l-2">
   <Content components={{ h1: TimelineItemTitle, p: TimelineItemContent, a: TextLink }} />
 </div>
