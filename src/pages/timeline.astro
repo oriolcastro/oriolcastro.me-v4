@@ -1,11 +1,12 @@
 ---
 import TimelineItem from '@/components/timeline/TimelineItem.astro'
-import TimelineTOC from '@/components/timeline/TimelineTOC.astro'
+import TimelineTOC from '@/components/solid/TimelineTOC'
 import { getAllTimeline, sortTimelineAscByYear } from '@/data/timeline'
 import PageLayout from '@/layouts/Base.astro'
 
 const allTimelineItems = await getAllTimeline()
 const allTimelineItemsByDate = sortTimelineAscByYear(allTimelineItems)
+const years = [...new Set(allTimelineItems.map(item => item.data.year))].sort((a, b) => a - b)
 
 const meta = {
   title: 'Timeline',
@@ -23,6 +24,6 @@ const meta = {
       </p>
       {allTimelineItemsByDate.map(item => <TimelineItem item={item} />)}
     </div>
-    <TimelineTOC timelineItems={allTimelineItems} />
+    <TimelineTOC years={years} client:load />
   </div>
 </PageLayout>

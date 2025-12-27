@@ -2,6 +2,7 @@ import fs from 'node:fs'
 
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
+import solid from '@astrojs/solid-js'
 import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
 import robotsTxt from 'astro-robots-txt'
@@ -42,7 +43,14 @@ export default defineConfig({
       rehypeUnwrapImages,
     ],
   },
-  integrations: [expressiveCode(expressiveCodeOptions), icon(), sitemap(), mdx({}), robotsTxt()],
+  integrations: [
+    expressiveCode(expressiveCodeOptions),
+    icon(),
+    sitemap(),
+    mdx({}),
+    robotsTxt(),
+    solid(),
+  ],
   env: {
     schema: {
       SITE_URL: envField.string({

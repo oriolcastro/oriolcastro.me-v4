@@ -6,6 +6,8 @@
       "@/*": ["src/*"]
     },
     "lib": ["es2022", "dom", "dom.iterable"],
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
     "strictNullChecks": true, // add if using `base` template
     "allowJs": true // required, and included with all Astro templates
   },
