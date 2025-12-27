@@ -30,7 +30,7 @@ const { post, as: Tag = 'div', withDesc = false } = Astro.props
   }
   {post.data.pinned && ' '}
   <a
-    href={`/posts/${post.id}/`}
+    href={`/posts/${post.id}`}
     class="cactus-link"
     data-astro-prefetch
     transition:name={post.data.title}>{post.data.title}</a

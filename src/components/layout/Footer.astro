@@ -11,7 +11,7 @@ const hasNotes = allNotes.length > 0
 
 // Filter menu links to exclude Notes if there are none
 const filteredMenuLinks = menuLinks.filter(link => {
-  if (link.path === '/notes/' && !hasNotes) return false
+  if (link.path === '/notes' && !hasNotes) return false
   return true
 })
 ---

@@ -23,7 +23,7 @@ import { remarkReadingTime } from './src/plugins/remark-reading-time'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://oriolcastro.me',
-  trailingSlash: 'never',
+  trailingSlash: 'ignore',
   prefetch: true,
   markdown: {
     remarkPlugins: [remarkReadingTime, remarkDirective, remarkGithubCard, remarkAdmonitions],
