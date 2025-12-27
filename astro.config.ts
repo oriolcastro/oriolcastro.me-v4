@@ -60,13 +60,6 @@ export default defineConfig({
       }),
     },
   },
-  experimental: {
-    // Enable Content Security Policy for enhanced security
-    csp: {
-      algorithm: 'SHA-256',
-      directives: ["default-src 'self'", "img-src 'self' data: https:"],
-    },
-  },
   vite: {
     plugins: [tailwindcss(), rawFonts(['.ttf', '.woff'])],
     optimizeDeps: {
