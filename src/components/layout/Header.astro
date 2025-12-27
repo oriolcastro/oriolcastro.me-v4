@@ -52,6 +52,7 @@ const filteredMenuLinks = menuLinks.filter(link => {
             href={link.path}
             class="px-4 py-4 underline-offset-2 sm:py-0 sm:hover:underline"
             aria-current={Astro.url.pathname === link.path ? 'page' : false}
+            data-astro-prefetch
           >
             {link.title}
           </a>
