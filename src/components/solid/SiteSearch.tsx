@@ -47,7 +47,8 @@ export default function SiteSearch() {
 
     const onWindowClick = (event: MouseEvent) => {
       const target = event.target as Node
-      const isLink = 'href' in (event.target || {})
+      // Check if the clicked element or any of its parents is a link
+      const isLink = (event.target as HTMLElement)?.closest('a') !== null
       // make sure the click is either a link or outside of the dialog
       if (isLink || (document.body.contains(target) && !dialogFrameRef?.contains(target))) {
         closeModal()
