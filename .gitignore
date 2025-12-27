@@ -25,3 +25,6 @@ pnpm-debug.log*
 .astro
 .eslintcache
 .data
+
+# pagefind (generated for local dev search)
+public/pagefind/

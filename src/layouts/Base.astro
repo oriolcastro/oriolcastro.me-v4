@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css'
 
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 
 import BaseHead from '@/components/BaseHead.astro'
 import SkipLink from '@/components/SkipLink.astro'
@@ -23,10 +23,10 @@ const {
 <html class="scroll-smooth" lang={siteConfig.lang}>
   <head>
     <BaseHead title={title} description={description} ogImage={ogImage} articleDate={articleDate} />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body
-    class="mx-auto flex min-h-screen max-w-3xl flex-col bg-bgColor px-4 pt-16 font-mono text-sm font-normal text-textColor antialiased sm:px-8"
+    class="bg-bgColor text-textColor mx-auto flex min-h-screen max-w-3xl flex-col px-4 pt-16 font-mono text-sm font-normal antialiased sm:px-8"
   >
     <ThemeProvider />
     <SkipLink />

@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content'
 
 /** filter out draft posts based on the environment */
 export async function getAllPosts(): Promise<CollectionEntry<'post'>[]> {
-  return await getCollection('post', ({ data }) => {
+  return await getCollection('post', ({ data }: { data: CollectionEntry<'post'>['data'] }) => {
     return import.meta.env.PROD ? data.draft !== true : true
   })
 }

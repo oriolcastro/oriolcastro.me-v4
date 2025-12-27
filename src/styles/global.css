@@ -1,31 +1,188 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import './components/admonition.css';
+@import './components/github-card.css';
+@plugin '@tailwindcss/typography';
+
+/* Use a selector-based strategy for dark mode */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  /* Color tokens that respond to theme changes */
+  /* These create utility classes like bg-bgColor, text-textColor, etc. */
+  --color-bgColor: var(--theme-bg-color);
+  --color-textColor: var(--theme-text-color);
+  --color-link: var(--theme-link-color);
+  --color-accent: var(--theme-accent-color);
+  --color-accent-2: var(--theme-accent-2-color);
+  --color-quote: var(--theme-quote-color);
+
+  /* Custom transition properties */
+  --transition-property-height: height;
+
+  /* Custom aspect ratios */
+  --aspect-cover: 2 / 1;
+
+  /* Grid template columns */
+  --grid-template-columns-timeline-item: auto 1fr;
+}
 
 @layer base {
-  :root,
-  :root[data-theme='light'] {
-    /* TODO: Update color scheme */
-    color-scheme: light;
-    /* https://tailwindcss.com/docs/customizing-colors#using-css-variables */
-    --theme-bg: 0deg 0% 98%;
-    /* --theme-link: 172deg 18% 41%; */
-    --theme-link: 216deg 85% 39%;
-    --theme-text: 203deg 11% 15%;
-    --theme-accent: 351deg 66% 48%;
-    --theme-accent-2: 0deg 0% 7%;
-    --theme-quote: 351deg 66% 48%;
+  html {
+    color-scheme: light dark;
+    accent-color: var(--color-accent);
+    scrollbar-gutter: stable;
+
+    /* Light theme (default) */
+    --theme-bg-color: hsl(0deg 0% 98%);
+    --theme-link-color: hsl(216deg 85% 39%);
+    --theme-text-color: hsl(203deg 11% 15%);
+    --theme-accent-color: hsl(351deg 66% 48%);
+    --theme-accent-2-color: hsl(0deg 0% 7%);
+    --theme-quote-color: hsl(351deg 66% 48%);
+
+    &[data-theme='light'] {
+      color-scheme: light;
+    }
+
+    &[data-theme='dark'] {
+      color-scheme: dark;
+      --theme-bg-color: hsl(210deg 6% 15%);
+      --theme-link-color: hsl(227deg 100% 72%);
+      --theme-text-color: hsl(220deg 3% 85%);
+      --theme-accent-color: hsl(16deg 100% 70%);
+      --theme-accent-2-color: hsl(0deg 0% 93%);
+      --theme-quote-color: hsl(102deg 100% 86%);
+    }
   }
 
-  :root[data-theme='dark'] {
-    color-scheme: dark;
-    --theme-bg: 210deg 6% 12%;
-    /* --theme-link: 330deg 49% 67%; */
-    --theme-link: 227deg 100% 72%;
-    --theme-text: 220deg 3% 79%;
-    /* --theme-accent: 159deg 64% 45%; */
-    --theme-accent: 16deg 100% 70%;
-    --theme-accent-2: 0deg 0% 93%;
-    --theme-quote: 102deg 100% 86%;
+  :target {
+    scroll-margin-block: 5ex;
+  }
+
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+@layer components {
+  .cactus-link {
+    @apply hover:decoration-link underline underline-offset-2 hover:decoration-2;
+  }
+
+  .title {
+    @apply text-accent-2 text-2xl font-semibold;
+  }
+}
+
+/* Prose utility customization - the proper Tailwind v4 way */
+@utility prose {
+  --tw-prose-body: var(--color-textColor);
+  --tw-prose-headings: var(--color-accent-2);
+  --tw-prose-links: var(--color-textColor);
+  --tw-prose-bold: var(--color-textColor);
+  --tw-prose-bullets: var(--color-textColor);
+  --tw-prose-quotes: var(--color-quote);
+  --tw-prose-code: var(--color-textColor);
+  --tw-prose-hr: 0.5px dashed #666;
+  --tw-prose-th-borders: #666;
+}
+
+/* Minimal prose style overrides - only what's truly needed beyond the plugin defaults */
+.prose a {
+  @apply hover:decoration-link underline underline-offset-2 hover:decoration-2;
+}
+
+.prose code {
+  border: 1px dotted #666;
+  border-radius: 2px;
+}
+
+.prose blockquote {
+  border-left-width: 0;
+}
+
+.prose hr {
+  border-top-style: dashed;
+}
+
+/* Spacing for special blocks inside prose */
+.prose
+  :where(.expressive-code, .admonition, .github-card):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
+  margin-top: calc(var(--spacing) * 4);
+  margin-bottom: calc(var(--spacing) * 4);
+}
+
+.prose thead th {
+  font-weight: 700;
+  border-bottom: 1px dashed #666;
+}
+
+.prose tbody tr {
+  border-bottom-width: 0;
+}
+
+.prose tfoot {
+  border-top: 1px dashed #666;
+}
+
+.prose sup {
+  @apply ms-0.5;
+}
+
+.prose sup a {
+  @apply bg-none;
+}
+
+.prose sup a:hover {
+  @apply text-link bg-none no-underline;
+}
+
+.prose sup a::before {
+  content: '[';
+}
+
+.prose sup a::after {
+  content: ']';
+}
+
+@media (min-width: 640px) {
+  .prose code {
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+}
+
+/* View transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

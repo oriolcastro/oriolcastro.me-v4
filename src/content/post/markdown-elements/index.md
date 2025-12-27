@@ -9,6 +9,7 @@ coverImage:
   alt: 'Astro build wallpaper'
 ogImage: '/social-card.png'
 draft: true
+pinned: true
 ---
 
 ## This is a H2 Heading
@@ -274,6 +275,52 @@ Negative potential consequences of an action.
 :::caution
 Negative potential consequences of an action.
 :::
+
+## GitHub Repository Cards
+
+You can add dynamic cards that link to GitHub repositories. On page load, the repository information is pulled from the GitHub API.
+
+To use this feature, you just use the "github" directive:
+
+```markdown title="Linking a repo"
+::github{repo="withastro/astro"}
+```
+
+```markdown title="Linking a user"
+::github{user="withastro"}
+```
+
+### Example: Repository Card
+
+The following markdown:
+
+```markdown
+::github{repo="withastro/astro"}
+```
+
+Renders as:
+
+::github{repo="withastro/astro"}
+
+### Example: User Card
+
+The following markdown:
+
+```markdown
+::github{user="withastro"}
+```
+
+Renders as:
+
+::github{user="withastro"}
+
+The card automatically displays:
+
+- Repository/user name and avatar
+- Description (for repositories)
+- Stars, forks, license, and language (for repositories)
+- Followers, repositories, and location (for users)
+- Link to the GitHub page
 
 ## Customising the admonition title
 

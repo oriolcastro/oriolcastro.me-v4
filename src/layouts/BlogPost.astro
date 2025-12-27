@@ -3,6 +3,7 @@ import { type CollectionEntry, render } from 'astro:content'
 
 import BlogHero from '@/components/blog/Hero.astro'
 import TOC from '@/components/blog/TOC.astro'
+import BackToTop from '@/components/solid/BackToTop'
 
 import BaseLayout from './Base.astro'
 
@@ -17,25 +18,6 @@ const articleDate = updatedDate?.toISOString() ?? publishDate.toISOString()
 const { headings } = await render(post)
 ---
 
-<script>
-  const scrollBtn = document.getElementById('to-top-btn') as HTMLButtonElement
-  const targetHeader = document.getElementById('blog-hero') as HTMLDivElement
-
-  function callback(entries: IntersectionObserverEntry[]) {
-    entries.forEach(entry => {
-      // only show the scroll to top button when the heading is out of view
-      scrollBtn.dataset.show = (!entry.isIntersecting).toString()
-    })
-  }
-
-  scrollBtn.addEventListener('click', () => {
-    document.documentElement.scrollTo({ top: 0, behavior: 'smooth' })
-  })
-
-  const observer = new IntersectionObserver(callback)
-  observer.observe(targetHeader)
-</script>
-
 <BaseLayout
   meta={{
     articleDate,
@@ -49,28 +31,11 @@ const { headings } = await render(post)
     <article class="flex-grow break-words" data-pagefind-body>
       <div id="blog-hero"><BlogHero content={post} /></div>
       <div
-        class="prose prose-base prose-cactus mt-12 max-w-[90ch] prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent sm:prose-headings:before:content-['#'] sm:prose-th:before:content-none"
+        class="prose prose-base prose-cactus prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent sm:prose-headings:before:content-['#'] sm:prose-th:before:content-none mt-12 max-w-[90ch]"
       >
         <slot />
       </div>
     </article>
   </div>
-  <button
-    id="to-top-btn"
-    class="z-90 fixed bottom-8 end-4 flex h-10 w-10 translate-y-28 items-center justify-center rounded-full border-2 border-transparent bg-zinc-200 text-3xl opacity-0 transition-all duration-300 hover:border-link data-[show=true]:translate-y-0 data-[show=true]:opacity-100 dark:bg-zinc-700 sm:end-8 sm:h-12 sm:w-12"
-    aria-label="Back to Top"
-    data-show="false"
-    ><svg
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      focusable="false"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="2"
-      stroke="currentColor"
-      class="h-6 w-6"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"></path>
-    </svg>
-  </button>
+  <BackToTop client:load />
 </BaseLayout>

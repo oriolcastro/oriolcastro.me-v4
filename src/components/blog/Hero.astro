@@ -41,7 +41,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
   </p>
   {
     data.updatedDate && (
-      <span class="rounded-lg bg-quote/5 p-1 text-quote">
+      <span class="bg-quote/5 text-quote rounded-lg p-1">
         Last Updated:
         <FormattedDate class="ms-1" date={data.updatedDate} dateTimeOptions={dateTimeOptions} />
       </span>
@@ -73,7 +73,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
           <a
             class="cactus-link inline-block before:content-['#']"
             aria-label={`View more blogs with the tag ${tag}`}
-            href={`/tags/${tag}/`}
+            href={`/tags/${tag}`}
             data-pagefind-filter="tag"
           >
             {tag}

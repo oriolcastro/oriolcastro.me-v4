@@ -22,9 +22,9 @@
     root.setAttribute('data-theme', newTheme)
 
     const colorThemeMetaTag = document.querySelector("meta[name='theme-color']")
-    const bgColour = getComputedStyle(document.body).getPropertyValue('--theme-bg')
+    const bgColour = getComputedStyle(document.body).getPropertyValue('--theme-bg-color')
 
-    colorThemeMetaTag.setAttribute('content', `hsl(${bgColour})`)
+    colorThemeMetaTag.setAttribute('content', bgColour)
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('theme', newTheme)
     }
@@ -36,7 +36,7 @@
   // View Transitions hook to restore theme mode
   document.addEventListener('astro:after-swap', () => setTheme(getUserPref()))
 
-  // listen for theme-change custom event, fired in src/components/ThemeToggle.astro
+  // listen for theme-change custom event, fired by ThemeToggle Solid component
   document.addEventListener('theme-change', e => {
     setTheme(e.detail.theme)
   })

@@ -25,13 +25,12 @@ const repos = await getPinnedRepos('oriolcastro')
     {
       repos?.map(repo => (
         <a href={repo.link} target="_blank" rel="noopener noreferrer">
-          <div class="flex h-full flex-col gap-1 rounded border bg-inherit p-2 hover:border-link">
+          <div class="hover:border-link flex h-full flex-col gap-1 rounded border bg-inherit p-2">
             <p class="text-base font-bold">{repo.name}</p>
             <p class="flex-grow">{repo.description}</p>
-            {/* TODO: use text color from repo data */}
             <span
               style={{ backgroundColor: repo.languageColor }}
-              class="flex w-fit items-center justify-center rounded-full px-2 py-[0.125rem] text-xs"
+              class="flex w-fit items-center justify-center rounded-full px-2 py-[0.125rem] text-xs text-gray-900"
             >
               {repo.language}
             </span>

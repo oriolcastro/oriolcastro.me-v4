@@ -1,11 +1,23 @@
 ---
+import { getCollection } from 'astro:content'
+
 import { menuLinks, siteConfig } from '@/site.config'
 
 const year = new Date().getFullYear()
+
+// Check if there are any notes in the collection
+const allNotes = await getCollection('note')
+const hasNotes = allNotes.length > 0
+
+// Filter menu links to exclude Notes if there are none
+const filteredMenuLinks = menuLinks.filter(link => {
+  if (link.path === '/notes' && !hasNotes) return false
+  return true
+})
 ---
 
 <footer
-  class="mt-auto flex w-full flex-col items-center justify-center gap-y-2 pb-4 pt-20 text-center align-top text-gray-500 sm:flex-row sm:justify-between sm:text-xs"
+  class="mt-auto flex w-full flex-col items-center justify-center gap-y-2 pt-20 pb-4 text-center align-top text-gray-500 sm:flex-row sm:justify-between sm:text-xs"
 >
   <div class="me-0 sm:me-4">
     Copyright &copy; {year}{' '}
@@ -16,10 +28,11 @@ const year = new Date().getFullYear()
     class="flex gap-x-2 sm:gap-x-0 sm:divide-x sm:divide-gray-500"
   >
     {
-      menuLinks.map(link => (
+      filteredMenuLinks.map(link => (
         <a
           href={link.path}
-          class="px-4 py-2 sm:px-2 sm:py-0 sm:hover:text-textColor sm:hover:underline"
+          class="sm:hover:text-textColor px-4 py-2 sm:px-2 sm:py-0 sm:hover:underline"
+          data-astro-prefetch
         >
           {link.title}
         </a>

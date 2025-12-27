@@ -90,8 +90,8 @@ const paginationProps = {
             {uniqueTags.map(tag => (
               <li>
                 <a
-                  class="cactus-link flex items-center justify-center rounded-lg bg-accent p-1"
-                  href={`/tags/${tag}/`}
+                  class="bg-accent flex items-center justify-center rounded-lg p-1 transition-all duration-200 hover:scale-105 hover:opacity-80"
+                  href={`/tags/${tag}`}
                   aria-label={`View all posts with the tag: ${tag}`}
                 >
                   #{tag}
@@ -100,7 +100,7 @@ const paginationProps = {
             ))}
           </ul>
           <span class="mt-4 block sm:text-end">
-            <a class="sm:hover:text-link" href="/tags/" aria-label="View all blog categories">
+            <a class="sm:hover:text-link" href="/tags" aria-label="View all blog categories">
               View all →
             </a>
           </span>

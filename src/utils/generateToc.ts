@@ -16,7 +16,6 @@ function injectChild(items: TocItem[], item: TocItem): void {
   } else {
     // e.g., 2
     injectChild(lastItem.children, item)
-    return
   }
 }
 
