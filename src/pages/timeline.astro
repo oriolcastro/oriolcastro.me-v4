@@ -16,11 +16,11 @@ const meta = {
 
 <PageLayout meta={meta}>
   <div class="flex w-full flex-col gap-x-10 lg:flex-row lg:items-start">
-    <div class="order-1 flex-1 space-y-6">
+    <div class="order-1 flex-1 space-y-6" data-pagefind-body>
       <h1 class="title">Timeline</h1>
       <p class="text-justify">
         A year-by-year reflection on the milestones that shaped my career (and life): what I built,
-        what worked (and didn’t), and the lessons I’m taking forward.
+        what worked (and didn't), and the lessons I'm taking forward.
       </p>
       {allTimelineItemsByDate.map(item => <TimelineItem item={item} />)}
     </div>
