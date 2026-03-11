@@ -1,7 +1,7 @@
 ---
 title: 'AI Agents Are Turning Engineering Into a Zelda Side-Quest Simulator'
 description: 'AI tools can turn a focused bug fix into a quest chain, and latency may be the reason engineers lose the main objective.'
-publishDate: '10 Mar 2026'
+publishDate: '12 Mar 2026'
 tags: ['AI Agents', 'Engineering', 'Productivity', 'Workflow', 'Focus']
 coverImage:
   src: './cover.webp'
