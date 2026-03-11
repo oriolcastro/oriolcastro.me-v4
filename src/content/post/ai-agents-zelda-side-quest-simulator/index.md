@@ -6,7 +6,7 @@ tags: ['AI Agents', 'Engineering', 'Productivity', 'Workflow', 'Focus']
 coverImage:
   src: './cover.webp'
   alt: 'A developer in a Zelda-like dungeon facing a monster while AI side quests float around the screen'
-draft: true
+draft: false
 ---
 
 A few days ago I opened my editor to fix a bug.
