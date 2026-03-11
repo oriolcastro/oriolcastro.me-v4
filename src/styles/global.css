@@ -7,6 +7,8 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @theme {
+  --font-mono: var(--font-roboto-mono);
+
   /* Color tokens that respond to theme changes */
   /* These create utility classes like bg-bgColor, text-textColor, etc. */
   --color-bgColor: var(--theme-bg-color);
