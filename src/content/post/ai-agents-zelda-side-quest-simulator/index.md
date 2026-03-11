@@ -1,5 +1,5 @@
 ---
-title: 'AI Agents Are Turning Engineering Into a Zelda Side-Quest Simulator'
+title: 'AI Agents are turning engineering into a Zelda side-quest simulator'
 description: 'AI tools can turn a focused bug fix into a quest chain, and latency may be the reason engineers lose the main objective.'
 publishDate: '12 Mar 2026'
 tags: ['AI Agents', 'Engineering', 'Productivity', 'Workflow', 'Focus']
@@ -35,8 +35,6 @@ Another side quest.
 
 If you are not careful, a simple bug fix turns into a quest chain.
 
----
-
 ## The Cost of Leaving the Dungeon
 
 Debugging requires holding an entire system in your head.
@@ -58,8 +56,6 @@ Source: [Paul Graham - Maker's Schedule, Manager's Schedule](http://www.paulgrah
 Programming is immersion. The longer you stay inside the problem, the clearer the system becomes.
 
 Leaving the dungeon resets the dungeon.
-
----
 
 ## AI Agents Change the Shape of Work
 
@@ -93,8 +89,6 @@ Each agent quietly hands you another task.
 
 Before long your mental inventory is full of half-finished tasks.
 
----
-
 ## Latency Might Be the Real Problem
 
 There is an interesting possibility hidden in all of this.
@@ -122,8 +116,6 @@ Fast tools keep you inside the problem.
 In other words, faster AI might actually reduce multitasking instead of amplifying it.
 
 The agent stays in the dungeon with you.
-
----
 
 ## Staying on the Main Quest
 
