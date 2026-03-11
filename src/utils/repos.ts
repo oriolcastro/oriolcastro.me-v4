@@ -26,7 +26,12 @@ const aimer = async (url: string) => {
 export async function getPinnedRepos(username: string) {
   if (cache.has(username)) return cache.get(username)
 
-  const $ = await aimer(`https://github.com/${username}`)
+  let $: CheerioRoot
+  try {
+    $ = await aimer(`https://github.com/${username}`)
+  } catch {
+    return []
+  }
   const pinned = $('.pinned-item-list-item').toArray()
 
   if (!pinned || pinned.length === 0) return []

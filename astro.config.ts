@@ -6,7 +6,7 @@ import solid from '@astrojs/solid-js'
 import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
 import robotsTxt from 'astro-robots-txt'
-import { defineConfig, envField } from 'astro/config'
+import { defineConfig, envField, fontProviders } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
 
 import { expressiveCodeOptions } from './src/site.config'
@@ -25,6 +25,30 @@ export default defineConfig({
   site: 'https://oriolcastro.me',
   trailingSlash: 'ignore',
   prefetch: true,
+  fonts: [
+    {
+      provider: fontProviders.local(),
+      name: 'Roboto Mono',
+      cssVariable: '--font-roboto-mono',
+      weights: [400, 700],
+      styles: ['normal'],
+      formats: ['ttf'],
+      options: {
+        variants: [
+          {
+            src: ['./src/assets/roboto-mono-regular.ttf'],
+            weight: 400,
+            style: 'normal',
+          },
+          {
+            src: ['./src/assets/roboto-mono-700.ttf'],
+            weight: 700,
+            style: 'normal',
+          },
+        ],
+      },
+    },
+  ],
   markdown: {
     remarkPlugins: [remarkReadingTime, remarkDirective, remarkGithubCard, remarkAdmonitions],
     remarkRehype: {
