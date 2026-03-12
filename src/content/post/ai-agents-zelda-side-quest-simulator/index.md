@@ -35,7 +35,7 @@ Another side quest.
 
 If you are not careful, a simple bug fix turns into a quest chain.
 
-## The Cost of Leaving the Dungeon
+## The cost of leaving the dungeon
 
 Debugging requires holding an entire system in your head.
 
@@ -57,7 +57,7 @@ Programming is immersion. The longer you stay inside the problem, the clearer th
 
 Leaving the dungeon resets the dungeon.
 
-## AI Agents Change the Shape of Work
+## AI agents change the shape of work
 
 AI tools introduce a new dynamic.
 
@@ -89,7 +89,7 @@ Each agent quietly hands you another task.
 
 Before long your mental inventory is full of half-finished tasks.
 
-## Latency Might Be the Real Problem
+## Latency might be the real problem
 
 There is an interesting possibility hidden in all of this.
 
@@ -117,7 +117,7 @@ In other words, faster AI might actually reduce multitasking instead of amplifyi
 
 The agent stays in the dungeon with you.
 
-## Staying on the Main Quest
+## Staying on the main quest
 
 Side quests are not bad.
 
