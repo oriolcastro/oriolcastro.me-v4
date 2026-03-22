@@ -38,9 +38,9 @@ Or you take responsibility for your part in it.
 
 > If you hated interviewing and now repeat it, you are part of the problem.
 
-Most hiring processes are not designed. They are inherited. And no one really owns them.
+Most hiring processes are inherited. And no one really owns them.
 
-This is about trying to change that.
+That is why the same problems keep showing up.
 
 These are three things I try to get right every time I'm involved in hiring:
 
