@@ -1,13 +1,12 @@
 ---
 title: 'From Candidate to Interviewer: What I Refuse to Repeat'
-description: "Three principles I follow on the hiring side: be transparent, respect candidates' time with real feedback, and design technical evaluations that mirror real work—not inherited broken defaults."
-publishDate: '22 Mar 2026'
+description: "Three principles I follow to avoid broken hiring practices: be transparent, respect candidates' time with real feedback, and design technical evaluations that mirror real work—not inherited broken defaults."
+publishDate: '23 Mar 2026'
 tags: ['hiring', 'interviewing', 'engineering', 'leadership', 'career']
+coverImage:
+  src: './cover.webp'
+  alt: 'Two professionals in a job interview across a table—capturing both the candidate and interviewer side of hiring'
 draft: false
----
-
-Three principles I follow to avoid broken hiring practices.
-
 ---
 
 Not anymore.
@@ -37,7 +36,7 @@ At some point, you have to decide.
 Either you repeat the system.
 Or you take responsibility for your part in it.
 
-If you hated interviewing and now repeat it, you are part of the problem.
+> If you hated interviewing and now repeat it, you are part of the problem.
 
 Most hiring processes are not designed. They are inherited. And no one really owns them.
 
@@ -98,7 +97,7 @@ That includes the uncomfortable parts.
 
 I talk openly about the messy areas of our codebase. What is not ideal. Why it ended up like that. What we are doing about it.
 
-I have had moments where I thought: "Did I just share too much?"
+I have had moments where I thought: _"Did I just share too much?"_
 
 But here is the alternative.
 
@@ -106,7 +105,7 @@ A candidate joins, and two weeks later realizes things are very different from w
 
 That is not a hiring success. That is a delayed failure.
 
-If a candidate joins and feels surprised, your hiring process failed.
+> If a candidate joins and feels surprised, your hiring process failed.
 
 ---
 
@@ -116,7 +115,7 @@ That weekend I mentioned earlier was not the only time.
 
 There were multiple processes where I kept going through rounds thinking:
 
-"This is not going anywhere, is it?"
+_"This is not going anywhere, is it?"_
 
 Still, you continue. Because maybe you are wrong. Maybe the next step will change things.
 
@@ -159,7 +158,7 @@ That means:
 
 Even if you do not hire them, they should leave with something useful.
 
-If a candidate invests hours, you owe them more than a template rejection.
+> If a candidate invests hours, you owe them more than a template rejection.
 
 ### What I changed
 
@@ -240,7 +239,7 @@ We do not restrict it. We encourage it.
 
 That is the environment they will work in. Anything else is a simulation.
 
-The goal is not to see if someone can pass an interview. The goal is to understand how they would work with you.
+> The goal is not to see if someone can pass an interview. The goal is to understand how they would work with you.
 
 ### One important nuance
 
@@ -268,7 +267,7 @@ That is why the same problems keep showing up.
 
 But once you have been on both sides, it becomes a choice.
 
-If you hated interviewing and now repeat it, you are part of the problem.
+> If you hated interviewing and now repeat it, you are part of the problem.
 
 You will not fix hiring overnight.
 
