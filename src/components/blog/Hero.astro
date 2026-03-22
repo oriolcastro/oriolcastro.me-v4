@@ -6,11 +6,16 @@ import FormattedDate from '@/components/FormattedDate.astro'
 
 interface Props {
   content: CollectionEntry<'post'>
+  /** From `render().remarkPluginFrontmatter` — remark-injected fields are not on `entry.data`. */
+  readingTime?: string
 }
 
 const {
   content: { data },
+  readingTime: readingTimeProp,
 } = Astro.props
+
+const readingTime = readingTimeProp ?? data.readingTime
 
 const dateTimeOptions: Intl.DateTimeFormatOptions = {
   month: 'long',
@@ -37,7 +42,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
   <p class="font-semibold">
     <FormattedDate date={data.publishDate} dateTimeOptions={dateTimeOptions} /> /{' '}
-    {data.readingTime}
+    {readingTime}
   </p>
   {
     data.updatedDate && (
