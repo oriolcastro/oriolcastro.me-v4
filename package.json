@@ -29,11 +29,11 @@
     "package.json": "sort-package-json"
   },
   "dependencies": {
-    "@astrojs/mdx": "5.0.0",
+    "@astrojs/mdx": "5.0.2",
     "@astrojs/rss": "4.0.17",
     "@astrojs/sitemap": "3.7.1",
-    "@astrojs/solid-js": "6.0.0",
-    "astro": "6.0.2",
+    "@astrojs/solid-js": "6.0.1",
+    "astro": "6.0.8",
     "astro-expressive-code": "0.41.7",
     "astro-icon": "1.1.5",
     "astro-robots-txt": "1.0.0",
@@ -45,7 +45,7 @@
     "rehype-external-links": "3.0.0",
     "rehype-unwrap-images": "1.0.0",
     "remark-directive": "4.0.0",
-    "satori": "0.25.0",
+    "satori": "0.26.0",
     "satori-html": "0.3.2",
     "sharp": "0.34.5",
     "solid-js": "1.9.11",
@@ -53,20 +53,20 @@
     "unist-util-visit": "5.1.0"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.7",
-    "@commitlint/cli": "20.4.3",
-    "@commitlint/config-conventional": "20.4.3",
-    "@iconify-json/lucide": "1.2.96",
-    "@iconify-json/simple-icons": "1.2.73",
+    "@astrojs/check": "0.9.8",
+    "@commitlint/cli": "20.5.0",
+    "@commitlint/config-conventional": "20.5.0",
+    "@iconify-json/lucide": "1.2.98",
+    "@iconify-json/simple-icons": "1.2.74",
     "@pagefind/default-ui": "1.4.0",
     "@resvg/resvg-js": "2.6.2",
     "@tailwindcss/typography": "0.5.19",
-    "@tailwindcss/vite": "4.2.1",
+    "@tailwindcss/vite": "4.2.2",
     "@types/hast": "3.0.4",
     "@types/mdast": "4.0.4",
     "is-ci": "4.1.0",
-    "lint-staged": "16.3.3",
-    "oxlint": "1.52.0",
+    "lint-staged": "16.4.0",
+    "oxlint": "1.56.0",
     "pagefind": "1.4.0",
     "prettier": "3.8.1",
     "prettier-plugin-astro": "0.14.1",
@@ -74,11 +74,11 @@
     "reading-time": "1.5.0",
     "simple-git-hooks": "2.13.1",
     "sort-package-json": "3.6.1",
-    "tailwindcss": "4.2.1",
+    "tailwindcss": "4.2.2",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.57.0"
+    "typescript-eslint": "8.57.1"
   },
-  "packageManager": "pnpm@10.26.2",
+  "packageManager": "pnpm@10.32.1",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -87,14 +87,14 @@
       "esbuild"
     ],
     "overrides": {
-      "array-includes": "npm:@nolyfill/array-includes@latest",
-      "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
-      "array.prototype.flatmap": "npm:@nolyfill/array.prototype.flatmap@latest",
-      "has": "npm:@nolyfill/has@latest",
-      "object.assign": "npm:@nolyfill/object.assign@latest",
-      "object.entries": "npm:@nolyfill/object.entries@latest",
-      "object.fromentries": "npm:@nolyfill/object.fromentries@latest",
-      "object.values": "npm:@nolyfill/object.values@latest"
+      "array-includes": "npm:@nolyfill/array-includes@1.0.44",
+      "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@1.0.44",
+      "array.prototype.flatmap": "npm:@nolyfill/array.prototype.flatmap@1.0.44",
+      "has": "npm:@nolyfill/has@1.0.44",
+      "object.assign": "npm:@nolyfill/object.assign@1.0.44",
+      "object.entries": "npm:@nolyfill/object.entries@1.0.44",
+      "object.fromentries": "npm:@nolyfill/object.fromentries@1.0.44",
+      "object.values": "npm:@nolyfill/object.values@1.0.44"
     }
   }
 }
