@@ -455,7 +455,7 @@ That is usually the moment when you need to make lifecycle, ownership, and bound
 
 ## How AI actually helped
 
-One principle I like from Dex Horthy is: do not outsource the thinking.
+One principle I like from [Dex Horthy](https://x.com/dexhorthy) is: do not outsource the thinking.
 
 That shaped how I used AI here.
 
