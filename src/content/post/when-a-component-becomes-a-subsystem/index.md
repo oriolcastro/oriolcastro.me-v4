@@ -6,7 +6,7 @@ tags: ['frontend', 'react', 'architecture', 'rich-text', 'engineering']
 coverImage:
   src: './cover.webp'
   alt: 'Abstract representation of a complex editor system evolving from a tangled component into a structured architecture'
-draft: true
+draft: false
 ---
 
 _Why we rewrote Enginy’s editor around boundaries instead of patches_
