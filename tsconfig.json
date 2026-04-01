@@ -1,16 +1,13 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["${configDir}/src/*"]
     },
     "lib": ["es2022", "dom", "dom.iterable"],
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
-    "strictNullChecks": true, // add if using `base` template
-    "allowJs": true // required, and included with all Astro templates
+    "jsxImportSource": "solid-js"
   },
-  "include": ["./.eslint.config.js", ".astro/types.d.ts", "**/*"],
-  "exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist", "public"]
+  "include": ["${configDir}/.astro/types.d.ts", "${configDir}/**/*"],
+  "exclude": ["node_modules", "**/node_modules/*", ".vscode", "${configDir}/dist", "public"]
 }

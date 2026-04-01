@@ -29,11 +29,11 @@
     "package.json": "sort-package-json"
   },
   "dependencies": {
-    "@astrojs/mdx": "5.0.2",
-    "@astrojs/rss": "4.0.17",
-    "@astrojs/sitemap": "3.7.1",
+    "@astrojs/mdx": "5.0.3",
+    "@astrojs/rss": "4.0.18",
+    "@astrojs/sitemap": "3.7.2",
     "@astrojs/solid-js": "6.0.1",
-    "astro": "6.0.8",
+    "astro": "6.1.2",
     "astro-expressive-code": "0.41.7",
     "astro-icon": "1.1.5",
     "astro-robots-txt": "1.0.0",
@@ -48,7 +48,7 @@
     "satori": "0.26.0",
     "satori-html": "0.3.2",
     "sharp": "0.34.5",
-    "solid-js": "1.9.11",
+    "solid-js": "1.9.12",
     "unified": "11.0.5",
     "unist-util-visit": "5.1.0"
   },
@@ -56,8 +56,8 @@
     "@astrojs/check": "0.9.8",
     "@commitlint/cli": "20.5.0",
     "@commitlint/config-conventional": "20.5.0",
-    "@iconify-json/lucide": "1.2.98",
-    "@iconify-json/simple-icons": "1.2.74",
+    "@iconify-json/lucide": "1.2.101",
+    "@iconify-json/simple-icons": "1.2.76",
     "@pagefind/default-ui": "1.4.0",
     "@resvg/resvg-js": "2.6.2",
     "@tailwindcss/typography": "0.5.19",
@@ -66,7 +66,7 @@
     "@types/mdast": "4.0.4",
     "is-ci": "4.1.0",
     "lint-staged": "16.4.0",
-    "oxlint": "1.56.0",
+    "oxlint": "1.58.0",
     "pagefind": "1.4.0",
     "prettier": "3.8.1",
     "prettier-plugin-astro": "0.14.1",
@@ -75,26 +75,10 @@
     "simple-git-hooks": "2.13.1",
     "sort-package-json": "3.6.1",
     "tailwindcss": "4.2.2",
-    "typescript": "5.9.3",
-    "typescript-eslint": "8.57.1"
+    "typescript": "6.0.2"
   },
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@10.33.0",
   "engines": {
     "node": ">=22.12.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ],
-    "overrides": {
-      "array-includes": "npm:@nolyfill/array-includes@1.0.44",
-      "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@1.0.44",
-      "array.prototype.flatmap": "npm:@nolyfill/array.prototype.flatmap@1.0.44",
-      "has": "npm:@nolyfill/has@1.0.44",
-      "object.assign": "npm:@nolyfill/object.assign@1.0.44",
-      "object.entries": "npm:@nolyfill/object.entries@1.0.44",
-      "object.fromentries": "npm:@nolyfill/object.fromentries@1.0.44",
-      "object.values": "npm:@nolyfill/object.values@1.0.44"
-    }
   }
 }
