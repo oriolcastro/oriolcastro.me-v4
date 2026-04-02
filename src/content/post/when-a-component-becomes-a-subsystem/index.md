@@ -11,17 +11,13 @@ draft: false
 
 _Why we rewrote Enginy’s editor around boundaries instead of patches_
 
-At some point, simple editor changes at Enginy started to feel risky.
+At some point, a component stops being a unit of composition and becomes a unit of coordination.
 
-Not because the code was especially messy, but because the architecture was wrong.
+That is the moment it becomes a subsystem.
 
-As the product surface around the editor kept expanding, I spent a lot of time understanding where the old model was breaking and helping shape the new one. The rewrite was not about cleanup. It was about fixing an architecture that had turned normal product work into risky editor work.
+This happened to Enginy’s rich text editor. But the editor is only the case study. The broader pattern is architectural: once a component starts hosting product behavior, multiple state domains, and competing control paths, it needs boundaries that ordinary components do not.
 
-Over time, the editor had stopped behaving like a reusable component and started behaving like a subsystem.
-
-The example here is an editor, but the pattern is broader. Once a component starts hosting product behavior, it needs architectural boundaries that most components never need.
-
-We were still treating it like the former.
+The rewrite was not about cleanup. It was about recognizing that we were still treating a subsystem like a component.
 
 ---
 
@@ -40,7 +36,7 @@ From the beginning, it already owned a lot:
 
 Even the extension list made that clear.
 
-### Built-in TipTap extensions
+**Built-in TipTap extensions**
 
 ```text
 StarterKit
@@ -58,7 +54,7 @@ TextStyle
 Color
 ```
 
-### Custom extensions and customizations
+**Custom extensions and customizations**
 
 ```text
 NonEditableSignature
@@ -78,9 +74,9 @@ By the time we were calling it a field, it was already carrying the responsibili
 
 ## What was actually wrong
 
-The problem was not that the editor had too many features.
+The problem was not feature count.
 
-The problem was that several independent systems had been fused into one component.
+The problem was that several independent systems had been collapsed into one ownership boundary.
 
 Inside `<AutocompleteField2 />`, we had:
 
@@ -95,9 +91,9 @@ Inside `<AutocompleteField2 />`, we had:
 - formatting UI — toolbar, modals, commands
 - React integration — refs, effects, callbacks
 
-These were not all the same kind of concern. Some belonged to the persisted document model. Some belonged to runtime editor behavior. Some belonged to UI. Some belonged to business rules. Some were integrations with external systems.
+That matters beyond editors.
 
-Treating them as one concern made the editor fragile.
+Whenever one component starts owning persisted state, runtime behavior, domain rules, UI orchestration, and external integrations at the same time, you do not just have a “big component.” You have multiple systems competing inside one abstraction.
 
 ---
 
@@ -178,11 +174,21 @@ That meant the renderer had access to context the persisted document did not. A 
 
 Rendering was doing domain work, and the two could drift apart.
 
----
+**Different bugs. Same root cause.**
 
-Different bugs. Same root cause.
+Once a component has to understand everything, it becomes a place where everything can break everything else.
 
-Once a component has to understand everything, it eventually becomes a place where everything can break everything else.
+That is also the decision boundary.
+
+A component has crossed into subsystem territory when:
+
+- it coordinates multiple independent concerns
+- it has more than one meaningful state domain
+- different actors can write through different paths
+- its invariants matter more than its rendering details
+
+At that point, the question is no longer “how do we keep this component tidy?”
+It is “what boundaries does this subsystem need?”
 
 ---
 
@@ -202,6 +208,8 @@ That sounds simple when written in one sentence. It was not simple to implement.
 
 ## The new mental model
 
+The shift was not just decomposition. It was ownership.
+
 Instead of one component, we now have:
 
 - lifecycle layer — `useEnginyEditor`
@@ -209,9 +217,14 @@ Instead of one component, we now have:
 - capabilities — extensions
 - product orchestration — outside the editor
 
-The shift was not just decomposition. It was ownership.
+That matters because boundaries are really ownership decisions:
 
-Each layer now has a clear job, a clear boundary, and fewer chances to silently become the source of truth for everything else.
+- who owns lifecycle
+- who owns persisted state
+- who owns runtime behavior
+- who owns product rules
+
+Once those are explicit, the system becomes easier not only to implement, but to evolve. Features stop negotiating through one god abstraction and start interacting through defined control surfaces.
 
 Most importantly, the editor instance is owned by the consumer.
 
@@ -258,20 +271,20 @@ Before, multiple state domains had been collapsed into one place. The document, 
 
 Now they are separate.
 
-### Document state
+**Document state**
 
 - TipTap document
 - selection
 - persisted content
 
-### Runtime state
+**Runtime state**
 
 - AI suggestions
 - attachment state
 - transient editor behavior
 - extension-local state
 
-### React state
+**React state**
 
 - UI shell
 - modals
@@ -409,53 +422,48 @@ This architecture is better.
 
 It is not simpler.
 
-The cost of this design is that complexity becomes explicit. You have to reason across layers, coordinate extensions carefully, and decide where logic belongs.
+The cost is that complexity becomes explicit. You have to reason across layers, coordinate extensions carefully, and decide where logic belongs.
 
 What gets harder:
 
-- understanding the system
+- understanding the full system
 - debugging across boundaries
 - extension coordination
 - lifecycle-aware cleanup
 - feature composition
 
-But that is a better kind of complexity.
+But this is a better kind of complexity.
 
 The old system was complex because everything was tangled.
-
 The new system is complex because boundaries are real.
 
-That is much easier to live with over time.
+And real boundaries have organizational consequences too: they clarify ownership, reduce hidden coupling, and make future changes easier to scope.
 
 ---
 
 ## When this is overkill
 
-This architecture is not the right answer for every editor.
+More generally, this architecture becomes necessary when a component stops being a UI primitive and starts behaving like infrastructure for product behavior.
 
-If your editor is just:
+In our case, that component was an editor.
+The same pattern shows up in data grids, form builders, canvases, workflow editors, media composers, and other advanced surfaces.
 
-- basic formatting
-- no custom nodes
-- no uploads
-- no AI
-- no contextual business rules
+The trigger is usually some combination of:
 
-then this is probably too much.
+- domain logic
+- async workflows
+- multiple state domains
+- external integrations
+- invariants that must hold across features
 
-More generally, this kind of architecture becomes necessary when a component stops being a UI primitive and starts hosting product behavior.
-
-In our case, that component was an editor. But the same pattern shows up in data grids, form builders, canvases, workflow editors, media composers, and other advanced surfaces.
-
-Once a component starts accumulating domain logic, async workflows, multiple state domains, and external integrations, the old “just keep it inside the component” model stops scaling.
-
-That is usually the moment when you need to make lifecycle, ownership, and boundaries explicit.
+Once those accumulate, “keep it inside the component” stops being a simplification.
+It becomes a way of hiding a subsystem without designing one.
 
 ---
 
 ## How AI actually helped
 
-One principle I like from [Dex Horthy](https://x.com/dexhorthy) is: do not outsource the thinking.
+One principle I really like, [introduced by Jake Nations](https://www.youtube.com/watch?v=eIoohUmYpGI) and popularized by [Dex Horthy](https://x.com/dexhorthy) is: _“Do not outsource the thinking.”_
 
 That shaped how I used AI here.
 
@@ -482,18 +490,10 @@ You know a component has outgrown its architecture when you cannot clearly expla
 - where writes happen
 - what counts as the source of truth
 
-That was the real lesson for me.
+That was the lesson from the editor, but it is not really about editors.
 
-The editor was only the case study.
+It is a general rule for software design:
+when ownership is unclear, writes are competing, and state domains are collapsed, the abstraction is already failing.
 
-The deeper problem was architectural: too many responsibilities, too many state domains, and too many competing control paths had been collapsed into one place.
-
-We rebuilt this because normal product work had become expensive. The result is not smaller, and it is not simpler.
-
-But it is understandable.
-
-And that is what scales.
-
-The problem was not the editor.
-
-It was that we kept putting everything inside it.
+At that point, the goal is not to make the component cleaner.
+The goal is to give the subsystem the boundaries it has already earned.
