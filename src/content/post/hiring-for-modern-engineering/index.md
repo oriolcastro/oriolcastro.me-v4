@@ -75,7 +75,7 @@ Not every phase carries the same weight for me. The real philosophy shows up in 
 
 Still, the shape matters, so here is how it works.
 
-## Phase 0 — Triage
+### Phase 0 — Triage
 
 This is the most brutal part of hiring.
 
@@ -91,11 +91,11 @@ The main lesson I took from my own experience is this: **you need to make your s
 
 Experience in a product company helps. Interesting side projects help. Signs of early agency help. A clear match between your past challenges and the kind of problems the company is working on helps.
 
-I wrote before about [my own journey finding my current software engineering job](/posts/my-journey-finding-my-current-software-engineer-job/), and one thing I still believe is that presenting the best version of yourself — and making clear what makes you stand out — matters a lot at this stage.
+I wrote before about [my exprience finding a software engineering job](/posts/my-journey-finding-my-current-software-engineer-job/), and one thing I still believe is that presenting the best version of yourself, and making clear what makes you stand out, matters a lot at this stage.
 
 I do not love this phase, but I do think it reflects a hard truth: if your signal is hard to see, many teams will miss it. That is unfair sometimes. It is also real.
 
-## Phase 1 — First contact
+### Phase 1 — First contact
 
 I created the template for this interview around a very intentional dual goal:
 
@@ -115,7 +115,7 @@ Can the candidate explain why they made past decisions? Can they talk through tr
 
 That is much more interesting than hearing the same rehearsed career story for the tenth time.
 
-## Phase 2 — We stopped testing for stack recall
+### Phase 2 — We stopped testing for stack recall
 
 This is one of the parts I most wanted to change.
 
@@ -147,7 +147,7 @@ What changed for me is not just the format of the interview. It is what I consid
 
 If AI makes building easier, I want the interview to spend less time asking “how much do you know about this tool?” and more time asking “how do you think when the problem is real?”
 
-## Phase 3 — We replaced the fake task with real work
+### Phase 3 — We replaced the fake task with real work
 
 This is the phase I care most about.
 
@@ -197,7 +197,7 @@ And we only give one hour for a reason.
 
 Partly because I care about not eating up a candidate’s free time. But also because with strong AI tools, one hour is enough to reveal a lot.
 
-## Feedback is part of the deal
+**Feedback is part of the deal**
 
 One of the commitments I made in my previous article was that if I ever got the chance to influence hiring, I would not treat candidate effort as disposable.
 
@@ -209,7 +209,7 @@ The same way we would for a colleague in a code review.
 
 Companies love to talk about respecting candidates. Fine. Then act like it.
 
-## Phase 4 — Final check
+### Phase 4 — Final check
 
 This is the phase where I am least involved, so I will not pretend to have deep insight I do not have.
 
