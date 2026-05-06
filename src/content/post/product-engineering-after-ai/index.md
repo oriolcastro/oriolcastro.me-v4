@@ -1,7 +1,7 @@
 ---
 title: 'Why AI Made Me Care More About Being a Product Engineer'
 description: 'AI makes it easier to turn instructions into working software, but it does not decide whether the software should exist. This article reflects on why product responsibility matters more when implementation gets cheaper.'
-publishDate: '4 May 2026'
+publishDate: '6 May 2026'
 tags: ['engineering', 'ai', 'career', 'leadership', 'product engineering']
 coverImage:
   src: './cover.webp'
@@ -79,15 +79,13 @@ If you could build the thing, you had leverage. You could turn ambiguity into a 
 
 AI changes the economics of that work.
 
-It can scaffold the feature, generate the migration, write the first version of the tests, explore a library, explain an unfamiliar part of the system, and produce a plausible implementation. It does not make any of those things free, and it does not make them automatically good. But it lowers the cost of getting from instruction to output.
+It can scaffold the feature, write the first version of the tests, explore a library, explain an unfamiliar part of the system, and produce a plausible implementation. It does not make any of those things free, and it does not make them automatically good. But it lowers the cost of getting from instruction to output.
 
 That matters.
 
 When output becomes cheaper, scarcity moves elsewhere. It moves toward knowing what to ask for, what to leave out, and what a product can absorb without becoming harder to understand. It moves toward recognizing when a request is a symptom of confusion rather than a missing feature.
 
 The AI-generated PR with the configuration setting is a small example. A user asked for more control. The obvious implementation was to add control. But the product question was different: why did the user need control in the first place? Were the defaults wrong? Were they invisible? Were we asking users to trust behavior they could not predict?
-
-A setting can be right. But it is never neutral. It adds a branch to the product: something to name, explain, test, document, support, and eventually remove.
 
 AI can solve an instruction, and it can increasingly help critique one. But it still cannot own the tradeoff.
 
@@ -113,7 +111,7 @@ But once we touched it, the project stopped being about polish.
 
 We started uncovering different ideas of what the inbox was supposed to be. Some users wanted it to process everything. They wanted a place where all incoming work could be handled, sorted, and moved forward. Others wanted it to stay focused on the next relevant action, almost as a way to protect attention.
 
-A lot of the requests sounded like requests for more control. Users wanted filters by status: unreplied, replied, last replied by the contact. They wanted to filter by almost any available property. From the outside, these requests looked reasonable. If the data exists, why not expose it? If users ask for a filter, why not add the filter?
+A lot of the requests sounded like requests for more control. Users wanted filters by status: unread, read, unreplied, replied. They wanted to filter by almost any available property. From the outside, these requests looked reasonable. If the data exists, why not expose it? If users ask for a filter, why not add the filter?
 
 But this was the same pattern as the PR from the beginning. The obvious implementation was to add the requested control. The deeper product question was whether the inbox model was clear enough.
 
@@ -125,17 +123,17 @@ If one conversation is replied and another is unreplied, what status should the 
 
 These are not just implementation details. They are product decisions hiding inside implementation details.
 
-Each answer teaches users what the inbox is for. A filter is not just a filter. A status is not just a status. Adding another status sounds harmless, but it changes whether users understand the inbox as a place to manage every possible message state or as a place to know what needs their attention now.
+Each answer teaches users what the inbox is for. Adding another status sounds harmless, but it changes whether users understand the inbox as a place to manage every possible message state or as a place to know what needs their attention now.
 
 That distinction became the center of the project.
 
-Was the inbox a triage surface, a task list, a communication hub, or a focused view of follow-ups? Each answer led to a different product. We could have built a more powerful inbox in the narrow sense by exposing every possible property, status, and filter. It would have satisfied many individual requests. It also would have made the product heavier.
+Was the inbox a triage surface, a task list, a communication hub, or a focused view of follow-ups? Each answer led to a different product. We could have said yes to every request and built a more powerful inbox in the narrow sense, exposing every possible property, status, and filter. It would have satisfied many individual asks, but it also would have made the product heavier: more configurable, less clear, and slower to understand.
 
 The direction we chose was narrower: the inbox should show what needs attention now, not expose every possible message state.
 
 That did not mean ignoring every other workflow. It meant choosing the product’s center of gravity.
 
-If we said yes to every request, the inbox would become more configurable and less clear. It would expose more concepts, ask more of the user, and slowly lose the simplicity that made it useful. If we said no too aggressively, we risked ignoring real pain and forcing users into a model that did not match their day.
+If we said no too aggressively, we risked ignoring real pain and forcing users into a model that did not match their day.
 
 This is where product engineering starts: before the code, when deciding what the product should become.
 
@@ -159,7 +157,7 @@ I use it for technical research, exploring libraries, understanding unfamiliar p
 
 That is genuinely useful.
 
-So the vulnerability for me is not that I am afraid of AI, or that I want to protect an older version of engineering from change. I do not feel anti-AI. Most days, I feel the opposite. I would not want to go back to working without it.
+What feels vulnerable is not a fear of AI, or a desire to protect an older idea of engineering from change. I do not feel anti-AI. Most days, I feel the opposite: I would not want to go back to working without it.
 
 The uncomfortable part is more personal than that.
 
@@ -181,7 +179,7 @@ AI does not know which debts are intentional. It does not know which shortcuts b
 
 That work remains human because accountability remains human.
 
-The skills that matter more after AI are easy to mislabel as soft. Product sense is not decoration. It is knowing that a small setting can create a new workflow. Communication is not something around the work. It is how we discover what the work is. Technical care is not less important, but it has to be connected to the consequences of what we choose to build.
+The skills that matter more after AI are often mislabeled as soft. Product sense is not decorative; it is the ability to see how a small setting can create a new workflow. Communication is not separate from the work; it is how we figure out what the work should be. Technical care still matters, but it has to be tied to the consequences of what we decide to build.
 
 The product engineer after AI is not less technical. They are more responsible.
 
