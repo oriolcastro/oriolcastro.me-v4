@@ -33,11 +33,13 @@ I have always described myself more naturally as a Product Engineer than as a So
 
 By Product Engineer, I mean an engineer who treats implementation as part of the job, not the edge of it.
 
-If I think of my job as producing software, the boundary can stop at the implementation. If I think of my job as producing a product, that boundary disappears. I am responsible for the problem, the tradeoff, the user experience, and the consequences of what we ship.
+If I think of my job as producing software, the boundary can stop at the implementation. If I think of my job as producing a product, that boundary moves outward: to the problem, the tradeoff, the user experience, and the consequences of what we ship.
 
-AI makes it easier to build the wrong thing faster.
+AI has made that distinction more important.
 
-If AI can write more code than us, then our value cannot be the amount of code we produce.
+It makes it easier to build the wrong thing faster.
+
+And if AI can write more code than us, then our value cannot be measured by the amount of code we produce.
 
 ## Clean code was my comfort zone
 
@@ -63,7 +65,9 @@ Users contradict each other. Timing changes the right answer. Business needs mat
 
 That messiness can be uncomfortable.
 
-I could point to the refactor. I could explain the architecture. I could show that the implementation was flexible, tested, and maintainable. Those things mattered, and still matter, but they also gave me a familiar way to measure my value.
+For a long time, craft gave me a reliable way to feel useful. I could point to the refactor. I could explain the architecture. I could show that the implementation was flexible, tested, and maintainable. Those things mattered, and still matter, but they also gave me a familiar way to measure my value.
+
+It is strange to see a model produce in seconds something that used to give me a reliable sense of progress. Not because the output is always good, but because it is often good enough to remove the easy part of my confidence.
 
 AI has made that comfort feel less stable.
 
@@ -85,29 +89,15 @@ That matters because when output becomes cheaper, scarcity moves elsewhere.
 
 It moves toward knowing what to ask for, what to leave out, and what the product can absorb without becoming harder to understand. It moves toward recognizing when a request is a symptom of confusion rather than a missing feature.
 
-The AI-generated PR with the configuration setting is a small example.
+More software will be built. More experiments will be cheap enough to attempt. More internal tools will appear. More workflows will become software. Some of that will create real leverage. Some of it will create new surfaces to explain, support, migrate, debug, and eventually remove.
 
-A user asked for more control. The obvious implementation was to add control. But the product question was different: why did the user need control in the first place? Were the defaults wrong? Were they invisible? Were we asking users to trust behavior they could not predict?
-
-AI can solve an instruction. Increasingly, it can also help critique one. But it cannot be accountable for the tradeoff.
-
-That distinction matters.
-
-I do not think AI means we will have less software. I think it means we will have more. More experiments will be cheap enough to attempt. More internal tools will be built. More workflows will become software. More teams will generate features that previously would have taken too long to justify.
-
-Some of that will be good. Some of it will create real leverage.
-
-But more software also means more surfaces to explain, more states to maintain, more edge cases to support, and more chances for the product to become incoherent.
-
-A feature does not stop costing money when the pull request is merged. It costs attention. It costs maintenance. It costs conceptual space in the product. It becomes something users have to understand and the team has to preserve, migrate, document, debug, or eventually remove.
+A feature does not stop costing money when the pull request is merged. It costs attention. It costs maintenance. It costs conceptual space in the product.
 
 The cost of producing a feature may go down.
 
 The cost of carrying the wrong feature does not disappear.
 
 That is why the work before implementation matters more, not less.
-
-Code is not the whole job. It is the artifact we leave behind after deciding what should exist.
 
 
 ## AI can help with judgment, but it cannot own it
@@ -126,16 +116,14 @@ But it does not live with the consequences of the decision.
 
 It does not answer the support ticket when the behavior confuses a customer. It does not explain the tradeoff to sales. It does not decide that a technically cleaner abstraction is wrong because it makes the product harder to understand. It does not know which debts are intentional and which ones will make the product harder to change six months from now.
 
-It can help evaluate the decision.
-
-It cannot be accountable for it.
+The model can participate in the thinking. It cannot be accountable for the outcome.
 
 That ownership gap is where product engineering still lives.
 
 
 ## Product work starts before the instruction is clear
 
-TThis became very obvious to me during our work on Enginy’s Smart Inbox.
+This became very obvious to me during our work on Enginy’s Smart Inbox.
 
 The inbox is a unified place for messages across different channels, multiple identities, and many contacts. At first, the intention sounded straightforward: make it better designed, prettier, and more polished.
 
@@ -193,9 +181,7 @@ But they usually see the product through that pain.
 
 The engineer working on the product has to see the system around it: the behaviors we encourage, the concepts we teach, the complexity we expose, the default states we create, the support burden we accept, and the promises we make harder to change later.
 
-AI can make this easier to get wrong because it reduces the friction between idea and implementation.
-
-A vague request can become a working feature very quickly. The requested field can be exposed. The requested setting can be added. The requested filter can appear.
+AI reduces the friction between idea and implementation. A vague request can become a working feature very quickly. The requested field can be exposed. The requested setting can be added. The requested filter can appear.
 
 And because it works, it can feel like progress.
 
@@ -220,9 +206,7 @@ That is genuinely useful.
 
 What feels vulnerable is not a fear of AI, or a desire to protect an older idea of engineering from change. I do not feel anti-AI. Most days, I feel the opposite: I would not want to go back to working without it.
 
-The uncomfortable part is more personal than that.
-
-AI weakens the comfort of craft as a complete identity. It makes it harder to rely on the familiar feeling of being valuable because I can produce the implementation. It takes a part of the work that used to feel like proof of competence and makes it easier to generate, easier to compare, and easier to replace with a first draft.
+The uncomfortable part is more personal. AI weakens the comfort of craft as a complete identity. It takes a part of the work that used to feel like proof of competence and turns it into something easier to generate, easier to compare, and easier to treat as a draft.
 
 That does not make engineering less important.
 
@@ -252,11 +236,7 @@ The skills that matter more after AI are often mislabeled as soft.
 
 Product sense is not decorative; it is the ability to see how a small setting can create a new workflow. Communication is not separate from the work; it is how we figure out what the work should be. Technical care still matters, but it has to be tied to the consequences of what we decide to build.
 
-The product engineer after AI is not less technical.
-
-They are more responsible.
-
-More responsible for understanding the problem before generating the solution. More responsible for seeing the tradeoffs hidden inside implementation. More responsible for saying no when a request would make the product worse. More responsible for using AI without letting speed become a substitute for thought.
+The product engineer after AI is not less technical. They are more accountable for what the technology makes possible: the behavior, the tradeoff, the user’s mental model, and the consequences.
 
 AI can help us build. It can help us research. It can help us explore possibilities. It can make us faster, and sometimes it can make us better.
 
@@ -273,11 +253,3 @@ We asked for an implementation when what we needed was a product decision. We ha
 That is the part AI has made harder to ignore.
 
 When implementation becomes easier, weak product thinking has fewer places to hide.
-
-Product engineering after AI is not about proving that humans can still type better code. It is about owning the layer above the code: the behavior, the tradeoff, the user’s mental model, and the consequences.
-
-After AI, the title matters less.
-
-The responsibility matters more.
-
-Engineering that stops at implementation no longer feels honest.
