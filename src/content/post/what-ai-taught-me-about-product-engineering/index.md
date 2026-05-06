@@ -1,5 +1,5 @@
 ---
-title: 'Why AI Made Me Care More About Being a Product Engineer'
+title: 'What AI Taught Me About Being a Product Engineer'
 description: 'AI makes it easier to turn instructions into working software, but it does not decide whether the software should exist. This article reflects on why product responsibility matters more when implementation gets cheaper.'
 publishDate: '6 May 2026'
 tags: ['engineering', 'ai', 'career', 'leadership', 'product engineering']
